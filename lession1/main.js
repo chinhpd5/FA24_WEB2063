@@ -93,7 +93,21 @@ var paragraphs = document.getElementsByClassName('paragraph')
 
 var elements = document.getElementsByTagName('p')
 
-console.log(elements);
+// console.log(elements);
+
+// var element = document.querySelector('h1') // tag
+// var element = document.querySelector('#title') // id
+// var element = document.querySelector('.paragraph') // class
+
+// console.log({element});
+
+var paras = document.querySelectorAll('h1') // trả về 1 mảng
+
+// console.log(paras);
+// paras.forEach((item)=>{
+//     console.log(item);
+    
+// })
 
 
 
