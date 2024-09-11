@@ -112,8 +112,33 @@ var paras = document.querySelectorAll('h1') // trả về 1 mảng
 
 
 // 2. Attribute
+var h1Element = document.getElementById('title')
+
+// console.log(h1Element.id);
+h1Element.id ='title-2'
+
+h1Element.style.color = 'red'
+
+h1Element.setAttribute("data-id","chinhpd5")
+
+// console.log(h1Element.getAttribute('data-id'));
+
 
 // 3. Text
+//innerHtml
+// console.log(h1Element.innerText);
+// console.log(h1Element.textContent);
+
+// h1Element.innerText = `
+//                 chinhpd5
+// `
+// h1Element.textContent = `
+//                 <i>chinhpd5</i>
+// `
+
+h1Element.innerHTML = `<i>chinhpd5</i>`
+
+
 
 
 
