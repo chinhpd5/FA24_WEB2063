@@ -132,7 +132,22 @@ var h1Elements = document.getElementsByClassName('title');
 // console.log(h1Elements);
 
 var pElements = document.getElementsByTagName('p')
-console.log(pElements);
+// console.log(pElements);
+
+var h1Element = document.querySelector('#heading');// id
+var h1Element = document.querySelector('.title');// class
+var h1Element = document.querySelector('h1');// tag
+
+// console.log(h1Element);
+
+var pElements = document.querySelectorAll('.paragragh')
+// console.log(pElements);
+pElements.forEach(function(item){
+    console.log(item);
+    
+})
+
+
 
 
 
