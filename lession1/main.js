@@ -133,7 +133,7 @@ var h1Elements = document.getElementsByClassName('title');
 
 var pElements = document.getElementsByTagName('p')
 // console.log(pElements);
-
+//
 var h1Element = document.querySelector('#heading');// id
 var h1Element = document.querySelector('.title');// class
 var h1Element = document.querySelector('h1');// tag
@@ -143,20 +143,42 @@ var h1Element = document.querySelector('h1');// tag
 var pElements = document.querySelectorAll('.paragragh')
 // console.log(pElements);
 pElements.forEach(function(item){
-    console.log(item);
-    
+    // console.log(item);
 })
 
 
 
-
-
-
-
-
 // 2. Attribute
+var h1Element = document.querySelector('#heading');
+
+h1Element.id = "heading2"
+// console.log(h1Element.id);
+
+h1Element.style.color = 'red';
+
+h1Element.setAttribute("data-id","chinhpd5")
+
+// console.log(h1Element.getAttribute("data-id"));
+
 
 // 3. Text
+var h1Element = document.querySelector('#heading');
+
+// console.log(h1Element.innerText);
+// console.log(h1Element.textContent);
+
+// h1Element.innerText = `
+// Xin chào
+// `
+
+// h1Element.textContent = `
+// <i>Xin chào</i>
+// `
+
+h1Element.innerHTML = `
+<i>Xin chào</i>
+`
+
 
 
 
