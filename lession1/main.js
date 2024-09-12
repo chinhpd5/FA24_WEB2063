@@ -119,18 +119,26 @@ var pElements = document.getElementsByTagName('p');
 // var h1Element = document.querySelector('p');// tag
 // console.log({h1Element});
 
-var pElements = document.querySelectorAll('.paragragh');
-console.log(pElements);
+var pElements = document.querySelectorAll('body .paragragh');
+// console.log(pElements);
 
 pElements.forEach(function(item){
-    console.log({item});
+    // console.log({item});
 })
 
 
-
-
-
 // 2. Attribute
+var h1Element = document.querySelector('#heading');// id
+
+h1Element.id = "heading2";
+h1Element.style.color = 'red';
+
+// console.log(h1Element.id);
+h1Element.setAttribute("data","chinhpd5")
+
+console.log(h1Element.getAttribute("data"));
+
+
 
 // 3. Text
 
