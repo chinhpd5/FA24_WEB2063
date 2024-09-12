@@ -110,7 +110,22 @@ var pElements = document.getElementsByClassName('paragragh');
 //     console.log(item);
 // })
 var pElements = document.getElementsByTagName('p');
+// console.log(pElements);
+
+// css selector
+
+// var h1Element = document.querySelector('#heading');// id
+// var h1Element = document.querySelector('.paragragh');// class
+// var h1Element = document.querySelector('p');// tag
+// console.log({h1Element});
+
+var pElements = document.querySelectorAll('.paragragh');
 console.log(pElements);
+
+pElements.forEach(function(item){
+    console.log({item});
+})
+
 
 
 
