@@ -1,161 +1,114 @@
-//Biến: var let const
+// Biến: var let const
 
-// camel case
+// camelCase
 var myName="chinhpd5";
 
-// Pascal case
-var MyName ="chinhpd5";
+// PascalCase
+var MyName="chinhpd5";
 
-// Khai báo
-var myName = "xin chào"
-
-let hello ='Hello';
-hello = "xin chào";
-
-// scope
-// global scope
-let myName1 = "chinhpd5"; // var const
-
-{
-    // console.log(myName1);
-}
-
-// block scope (if else switch for)
-{
-    var a = 10;
-}
-// console.log(a); // có thể
-
-{
-    let b = 20;
-}
-// console.log(b); // không thể
-
-// local scope (function)
-function sayHello(){
-    var c =30; // let const
-}
-
-// console.log(c);
-
-// hoisting
-
-d = 50;
-// console.log(d);
-var d;
-
-// console.log(e);
-let e =20;
-
-// const
-const PI = '3.14';
+// const - biến hằng
+const PI = 3.14;
 // PI = 4;
 
-// Kiểu dữ liệu trong JS
+//Sự giống và khác nhau giữa var và let
+// Khai báo
+
+var name = "chinhpd5";
+var name = "chinhpd6";
+
+let name1 = "chinhpd5";
+// let name1 = "chinhpd6";
+
+// Phạm vi(scope)
+
+// global scope (var và let giống nhau)
+// var name = "chinhpd5";
+let name2 = "chinhpd5";
+{
+    // console.log(name2);
+}
+
+// block scope (if else, switch case, for,...)
+{
+    // var name3 = "chinhpd5"; // có thể
+    let name3 = "chinhpd5"; // không thể
+}
+
+// console.log(name3);
+
+// local scope (function) : var và let giống nhau
+function sayHello(){
+    // var a  = 10;    
+    let a  = 10;    
+}
+// console.log(a);
+
+
+// Kiểu dữ liệu
+
 /**
  * Kiểu dữ liệu nguyên thủy
  * - string: '' "" ``
- * - number: 1 -1 1.5
+ * - number: 1 -2 1.5
  * - boolean: true false
  * - null
  * - undefinded
  * - symbol
  * - bigInt
- 
+ * 
  * Kiểu dữ liệu phức tạp
- * - object
  * - array
+ * - object
  */
 
-
-// Toán tử
+// Toán tử trong JS
 /**
  * Toán tử số học: + - * / ** % ++ --
- * Toán tử so sánh: > < >= <= == != === !==
- * Toán tử gán: = += (i+=1 <=> i = i + 1) -= *= ...
+ * Toán tử so sánh: > < >= <= == != ===
+ * Toán tử gán: = += (i += 1 <=> i = i +1) -= *= ...
  * Toán tử logic: && || !
  */
 
+// Cú pháp
+// Điều kiện: if else, switch case, toán tử 3 ngôi
 
-//Cú pháp
-// Cú pháp điều kiện : if else, switch case, toán tử 3 ngôi
-var result = (1 == true) ? "Đúng" : "Sai"
+let result = ( 1 != true ) ? "Đúng" : "Sai"
+// console.log(result);
 
-// Vòng lặp
-// for
-// while, do while, forEach, for of, for in
+// Vòng lặp (for , while, do while, for in, for of, forEach )
 
 // DOM (Document Object Model)
 
 // 1. Element
-
 /**
  * id, class, tag
- * css selectors
+ * css selector
  */
 
-var h1Element = document.getElementById("heading")
-// console.log({h1Element});
-
-var h1Elements = document.getElementsByClassName('title')
+var h1Element = document.getElementById('heading');
+// console.log({ h1Element});
+var h1Elements = document.getElementsByClassName('title');
 // console.log(h1Elements);
-var pElements = document.getElementsByClassName('paragragh');
-// console.log(pElements);
+var pElement = document.getElementsByClassName('paragragh');
+// console.log(pElement);
 
-// for(var i =0;i <pElements.length; i++){
-//     console.log(pElements[i]);
-// }
-
-// pElements.forEach(function(item){
+// pElement.forEach(function(item){
 //     console.log(item);
 // })
-var pElements = document.getElementsByTagName('p');
-// console.log(pElements);
 
-// css selector
+// for(var i =0 ; i< pElement.length; i++){
+//     console.log({value: pElement[i]});
+// }
 
-// var h1Element = document.querySelector('#heading');// id
-// var h1Element = document.querySelector('.paragragh');// class
-// var h1Element = document.querySelector('p');// tag
-// console.log({h1Element});
+var pElement = document.getElementsByTagName('p');
+console.log(pElement);
 
-var pElements = document.querySelectorAll('body .paragragh');
-// console.log(pElements);
 
-pElements.forEach(function(item){
-    // console.log({item});
-})
+
 
 
 // 2. Attribute
-var h1Element = document.querySelector('#heading');// id
-
-h1Element.id = "heading2";
-h1Element.style.color = 'red';
-
-// console.log(h1Element.id);
-h1Element.setAttribute("data","chinhpd5")
-
-// console.log(h1Element.getAttribute("data"));
 
 // 3. Text
-var h1Element = document.querySelector('#heading');// id
-
-// console.log(h1Element.innerText);
-// console.log(h1Element.textContent);
-
-// h1Element.innerText = `
-//         Xin chào
-// `
-
-// h1Element.textContent = `
-//        <i> Xin chào</i>
-// `
-
-h1Element.innerHTML = `
-       <i> Xin chào</i>
-`
-
-
 
 
