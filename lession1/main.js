@@ -127,10 +127,22 @@ h1Element.style.color = 'red';
 
 
 h1Element.setAttribute("data","chinhpd5");
-console.log(h1Element.getAttribute("data"));
-
+// console.log(h1Element.getAttribute("data"));
 
 
 // 3. Text
+console.log(h1Element.innerText);
+console.log(h1Element.textContent);
+
+// h1Element.innerText = `
+// <i> xin chào </i>
+// `
+// h1Element.textContent = `
+// <i> xin chào </i>
+// `
+
+h1Element.innerHTML = `
+<i> xin chào </i>
+`
 
 
