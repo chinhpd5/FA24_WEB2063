@@ -114,15 +114,22 @@ var h1Element = document.querySelector('h1'); // tag
 var h1Elements = document.querySelectorAll('.paragragh');
 // console.log(h1Elements);
 h1Elements.forEach(item => {
-    console.log(item);
+    // console.log(item);
 });
 
-
-
-
-
-
 // 2. Attribute
+
+var h1Element = document.querySelector('#heading'); // id
+
+// console.log(h1Element.id);
+h1Element.id = 'chinhpd5';
+h1Element.style.color = 'red';
+
+
+h1Element.setAttribute("data","chinhpd5");
+console.log(h1Element.getAttribute("data"));
+
+
 
 // 3. Text
 
