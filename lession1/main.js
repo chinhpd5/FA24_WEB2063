@@ -115,21 +115,38 @@ var h1Element= document.querySelector('h1'); // tag
 // console.log({h1Element});
 
 var h1Elements = document.querySelectorAll('.title');
-console.log(h1Elements);
+// console.log(h1Elements);
 h1Elements.forEach(function(item){
-    console.log(item);
+    // console.log(item);
 })
 
-
-
-
-
-
-
-
 // 2. Attribute
+var h1Element= document.querySelector('#heading'); // id
+
+// console.log(h1Element.id);
+h1Element.id = 'heading-2';
+h1Element.style.color = 'red';
+
+h1Element.setAttribute("data","chinhpd5");
+// console.log(h1Element.getAttribute("data"));
+
 
 // 3. Text
+var h1Element= document.querySelector('#heading'); // id
+// console.log(h1Element.innerText);
+// console.log(h1Element.textContent);
+
+
+// h1Element.innerText = `
+//     <i>xin chào</i>
+// `
+// h1Element.textContent = `
+//     <i>xin chào</i>
+// `
+
+h1Element.innerHTML = `
+    <i>xin chào</i>
+`
 
 
 
