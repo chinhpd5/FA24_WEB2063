@@ -105,7 +105,23 @@ for(var z =0 ;z <pElements.length;z++){
 }
 
 var pElements = document.getElementsByTagName('p');
-console.log(pElements);
+// console.log(pElements);
+
+// css selector
+
+// var h1Element = document.querySelector('#heading'); // id
+// var h1Element= document.querySelector('.title'); // class
+var h1Element= document.querySelector('h1'); // tag
+// console.log({h1Element});
+
+var h1Elements = document.querySelectorAll('.title');
+console.log(h1Elements);
+h1Elements.forEach(function(item){
+    console.log(item);
+})
+
+
+
 
 
 
