@@ -94,16 +94,31 @@ var pElement = document.getElementsByClassName('paragragh');
 // console.log(pElement);
 
 var pElement = document.getElementsByTagName('p')
-console.log(pElement);
+// console.log(pElement);
 
 //lỗi
 // pElement.forEach(function(item){
 //     console.log(item);
 // })
 
-for(var i  =0; i < pElement.length; i++){
-    console.log(pElement[i]);
-}
+// for(var i  =0; i < pElement.length; i++){
+//     console.log(pElement[i]);
+// }
+
+//css selectors
+
+// var h1Heading = document.querySelector('#heading') // id
+// var h1Heading = document.querySelector('.title') // class
+// var h1Heading = document.querySelector('p') // tag
+// console.log(h1Heading);
+
+var pElements = document.querySelectorAll('.paragragh');
+console.log(pElements);
+
+pElements.forEach(function(item){
+    console.log(item);
+})
+
 
 
 
