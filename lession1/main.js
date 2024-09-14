@@ -77,7 +77,44 @@ var result = (1 != true) ? "Đúng" : "Sai"
 // console.log(result);
 // Vòng lặp: for, for in, for of, forEach, while, do while
 
-//DOM
+// DOM (Document Object Model)
+
+// 1. Element
+
+/**
+ * id, class, tag
+ * css selectors
+ */
+var h1Heading = document.getElementById("heading");
+// console.log({key : h1Heading});
+var h1Headings = document.getElementsByClassName("title");
+// console.log(h1Headings);
+
+var pElement = document.getElementsByClassName('paragragh');
+// console.log(pElement);
+
+var pElement = document.getElementsByTagName('p')
+console.log(pElement);
+
+//lỗi
+// pElement.forEach(function(item){
+//     console.log(item);
+// })
+
+for(var i  =0; i < pElement.length; i++){
+    console.log(pElement[i]);
+}
+
+
+
+
+
+
+// 2. Attribute
+
+// 3. Text
+
+
 
 
 
