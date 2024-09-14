@@ -1,4 +1,4 @@
-// Biến var let const 
+//biến var let const
 
 // camelCase
 var myName = "chinhpd5";
@@ -6,75 +6,80 @@ var myName = "chinhpd5";
 // PascalCase
 var MyName = "chinhpd5";
 
+const PI = 3.14;
+// PI = 3;
+
 // Khai báo biến
 var myAge = 20;
 var myAge = 30;
+// console.log(myAge);
 
-let myAdrress = "Hà Nội";
-myAdrress = "Hải Phòng";
+let myHome = "Hà Nội";
+myHome = "Hà Nam";
 
 // Phạm vi (scope)
-// global scope (var let)
-let a = 10; // var
+
+//global scope
+let i =10; //var
 
 {
-    // console.log(a);
+    // console.log(i);
 }
 
-// block Scope (if else, switch case, for)
-
+// block scope(if esle , switch case, for)
 {
-    var b =20; // có thể
-    let c = 30; // không thể
+    // var a = 20; // có thế
+    let a = 20; // không thể
 }
-
-// console.log(c);
+// console.log(a);
 
 // local scope (function)
 function sayHello(){
-    var d =40;// let
+    var b =30; // let
 }
 
-// console.log(d);
+// console.log(b);
 
 // Hoisting
 
-// e = 60;
-// console.log(e);
-// var e;
+// c = 40;
+// console.log(c);
+// var c;
 
-// console.log(f);
-let f;
+
+// console.log(d);
+let d = 50;
 
 // Kiểu dữ liệu
 /**
- * Kiểu dữ liệu nguyên thủy:
+ * Kiểu dữ liệu nguyên thủy
  * string: '' "" ``
- * number: 1, -2, 1.5
+ * number: 1, -2 , 3.5
  * boolean: true false
  * null
  * undefinded
- * symbol
  * bigInt
+ * symbol
  * 
- * Kiểu dữ liệu phức tạp:
+ * Kiểu dữ liệu phức tạp
  * - array
  * - object
  */
 
+// Toán tử trong JS
 /**
- * Toán tử trong JS:
- * - Toán tử số học: + - * / ** % ++ --
- * - Toán tử gán: = += (i+=1 <=> i = i + 1) -= *= ...
- * - Toán tử so sánh: > < >= <= != == ===
- * - Toán tử logic: && || !
+ * Toán tử số học: + - * / ** % ++ --
+ * Toán tử gán: = += (i+=1 <=> i = i + 1) -= *= ...
+ * Toán tử so sánh: > < >= <= == != ===
+ * Toán tử logic: && || !
  */
 
 // Cú pháp
 // Điều kiện: if else, switch case, toán tử 3 ngôi
-var result = (1 != true) ? "Đúng" : "Sai"
 
+var result = (1 != true) ? "Đúng" : "Sai"
 // console.log(result);
+
 // Vòng lặp: for, for in, for of, forEach, while, do while
 
 // DOM (Document Object Model)
@@ -82,67 +87,35 @@ var result = (1 != true) ? "Đúng" : "Sai"
 // 1. Element
 
 /**
- * id, class, tag
- * css selectors
+ * id,class,tag
+ * css selector
  */
-var h1Heading = document.getElementById("heading");
-// console.log({key : h1Heading});
-var h1Headings = document.getElementsByClassName("title");
-// console.log(h1Headings);
 
-var pElement = document.getElementsByClassName('paragragh');
-// console.log(pElement);
-
-var pElement = document.getElementsByTagName('p')
-// console.log(pElement);
-
-//lỗi
-// pElement.forEach(function(item){
+var h1Element = document.getElementById("heading")
+// console.log({h1Element});
+var h1Elements = document.getElementsByClassName('title')
+// console.log(h1Elements);
+var pElements = document.getElementsByClassName('paragragh');
+// console.log(pElements);
+// pElements.forEach(function(item){
 //     console.log(item);
 // })
+for(var z =0 ;z <pElements.length;z++){
+    // console.log(pElements[z]);
+}
 
-// for(var i  =0; i < pElement.length; i++){
-//     console.log(pElement[i]);
-// }
+var pElements = document.getElementsByTagName('p');
+console.log(pElements);
 
-//css selectors
 
-// var h1Heading = document.querySelector('#heading') // id
-// var h1Heading = document.querySelector('.title') // class
-// var h1Heading = document.querySelector('p') // tag
-// console.log(h1Heading);
 
-var pElements = document.querySelectorAll('.paragragh');
-// console.log(pElements);
 
-pElements.forEach(function(item){
-    // console.log(item);
-})
 
 // 2. Attribute
-var h1Heading = document.querySelector('#heading') // id
-
-// console.log(h1Heading.id);
-h1Heading.id = "heading-2";
-h1Heading.style.color = "red";
-
-h1Heading.setAttribute("data", "chinhpd5");
-// console.log(h1Heading.getAttribute("data"));
 
 // 3. Text
-var h1Heading = document.querySelector('#heading') // id
-console.log(h1Heading.innerText);
-console.log(h1Heading.textContent);
 
-// h1Heading.innerText = `
-//       <i> Xin chào</i>
-// `
 
-// h1Heading.textContent = `
-//    <i> Xin chào</i>
-// `
-
-h1Heading.innerHTML = '<i> Xin chào</i>'
 
 
 
