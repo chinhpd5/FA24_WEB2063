@@ -1,148 +1,84 @@
-// Biến: var let const
+// Biến var let const 
 
 // camelCase
-var myName="chinhpd5";
+var myName = "chinhpd5";
 
 // PascalCase
-var MyName="chinhpd5";
+var MyName = "chinhpd5";
 
-// const - biến hằng
-const PI = 3.14;
-// PI = 4;
+// Khai báo biến
+var myAge = 20;
+var myAge = 30;
 
-//Sự giống và khác nhau giữa var và let
-// Khai báo
+let myAdrress = "Hà Nội";
+myAdrress = "Hải Phòng";
 
-var name = "chinhpd5";
-var name = "chinhpd6";
+// Phạm vi (scope)
+// global scope (var let)
+let a = 10; // var
 
-let name1 = "chinhpd5";
-// let name1 = "chinhpd6";
-
-// Phạm vi(scope)
-
-// global scope (var và let giống nhau)
-// var name = "chinhpd5";
-let name2 = "chinhpd5";
 {
-    // console.log(name2);
+    // console.log(a);
 }
 
-// block scope (if else, switch case, for,...)
+// block Scope (if else, switch case, for)
+
 {
-    // var name3 = "chinhpd5"; // có thể
-    let name3 = "chinhpd5"; // không thể
+    var b =20; // có thể
+    let c = 30; // không thể
 }
 
-// console.log(name3);
+// console.log(c);
 
-// local scope (function) : var và let giống nhau
+// local scope (function)
 function sayHello(){
-    // var a  = 10;    
-    let a  = 10;    
+    var d =40;// let
 }
-// console.log(a);
 
+// console.log(d);
+
+// Hoisting
+
+// e = 60;
+// console.log(e);
+// var e;
+
+// console.log(f);
+let f;
 
 // Kiểu dữ liệu
-
 /**
- * Kiểu dữ liệu nguyên thủy
- * - string: '' "" ``
- * - number: 1 -2 1.5
- * - boolean: true false
- * - null
- * - undefinded
- * - symbol
- * - bigInt
+ * Kiểu dữ liệu nguyên thủy:
+ * string: '' "" ``
+ * number: 1, -2, 1.5
+ * boolean: true false
+ * null
+ * undefinded
+ * symbol
+ * bigInt
  * 
- * Kiểu dữ liệu phức tạp
+ * Kiểu dữ liệu phức tạp:
  * - array
  * - object
  */
 
-// Toán tử trong JS
 /**
- * Toán tử số học: + - * / ** % ++ --
- * Toán tử so sánh: > < >= <= == != ===
- * Toán tử gán: = += (i += 1 <=> i = i +1) -= *= ...
- * Toán tử logic: && || !
+ * Toán tử trong JS:
+ * - Toán tử số học: + - * / ** % ++ --
+ * - Toán tử gán: = += (i+=1 <=> i = i + 1) -= *= ...
+ * - Toán tử so sánh: > < >= <= != == ===
+ * - Toán tử logic: && || !
  */
 
 // Cú pháp
 // Điều kiện: if else, switch case, toán tử 3 ngôi
+var result = (1 != true) ? "Đúng" : "Sai"
 
-let result = ( 1 != true ) ? "Đúng" : "Sai"
 // console.log(result);
+// Vòng lặp: for, for in, for of, forEach, while, do while
 
-// Vòng lặp (for , while, do while, for in, for of, forEach )
-
-// DOM (Document Object Model)
-
-// 1. Element
-/**
- * id, class, tag
- * css selector
- */
-
-var h1Element = document.getElementById('heading');
-// console.log({ h1Element});
-var h1Elements = document.getElementsByClassName('title');
-// console.log(h1Elements);
-var pElement = document.getElementsByClassName('paragragh');
-// console.log(pElement);
-
-// pElement.forEach(function(item){
-//     console.log(item);
-// })
-
-// for(var i =0 ; i< pElement.length; i++){
-//     console.log({value: pElement[i]});
-// }
-
-var pElement = document.getElementsByTagName('p');
-// console.log(pElement);
-
-// css selector
-
-// var h1Element = document.querySelector('#heading'); // id
-// var h1Element = document.querySelector('.title'); // class
-var h1Element = document.querySelector('h1'); // tag
-
-// console.log(h1Element);
-
-var h1Elements = document.querySelectorAll('.paragragh');
-// console.log(h1Elements);
-h1Elements.forEach(item => {
-    // console.log(item);
-});
-
-// 2. Attribute
-
-var h1Element = document.querySelector('#heading'); // id
-
-// console.log(h1Element.id);
-h1Element.id = 'chinhpd5';
-h1Element.style.color = 'red';
+//DOM
 
 
-h1Element.setAttribute("data","chinhpd5");
-// console.log(h1Element.getAttribute("data"));
-
-
-// 3. Text
-console.log(h1Element.innerText);
-console.log(h1Element.textContent);
-
-// h1Element.innerText = `
-// <i> xin chào </i>
-// `
-// h1Element.textContent = `
-// <i> xin chào </i>
-// `
-
-h1Element.innerHTML = `
-<i> xin chào </i>
-`
 
 
