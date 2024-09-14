@@ -113,19 +113,24 @@ var pElement = document.getElementsByTagName('p')
 // console.log(h1Heading);
 
 var pElements = document.querySelectorAll('.paragragh');
-console.log(pElements);
+// console.log(pElements);
 
 pElements.forEach(function(item){
-    console.log(item);
+    // console.log(item);
 })
 
-
-
-
-
-
-
 // 2. Attribute
+var h1Heading = document.querySelector('#heading') // id
+
+console.log(h1Heading.id);
+h1Heading.id = "heading-2";
+h1Heading.style.color = "red";
+
+h1Heading.setAttribute("data", "chinhpd5");
+console.log(h1Heading.getAttribute("data"));
+
+
+
 
 // 3. Text
 
