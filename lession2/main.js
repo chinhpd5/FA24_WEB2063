@@ -53,9 +53,9 @@ var obj ={
 }
 
 var {name,age,child:{name : childName}} = obj;
-console.log(name);
-console.log(age);
-console.log(childName);
+// console.log(name);
+// console.log(age);
+// console.log(childName);
 
 function showInfo({name,age,child:{name : childName}}){
     console.log(name);
@@ -63,7 +63,44 @@ function showInfo({name,age,child:{name : childName}}){
     console.log(childName);
 }
 
-showInfo(obj)
+// showInfo(obj)
+
+// REST (Phần còn lại) ...
+
+var arr =[1,2,3];
+
+var [a,...rest] = arr;
+
+// console.log(a);
+// console.log(rest);
+
+var obj ={
+    name: "chinhpd5",
+    age:20,
+    child: {
+        name: "chinhpd6"
+    }
+}
+
+var {name,...newObj} = obj;
+// console.log(name);
+// console.log(newObj);
+
+var sum =(first,...rest)=>{
+    // console.log(first);
+    // console.log(rest);
+    // let total = 0;
+    rest.forEach((item)=>{
+        first+= item
+    })
+    return first;
+}
+
+console.log(sum(1,2,3,4,5));
+
+console.log(sum(1,2,3,4,5,6,7,8,9));
+
+
 
 
 
