@@ -11,7 +11,7 @@ function sayHello(name){
 
 // 2. expression function
 
-var sayHello = function(name){
+var sayHello1 = function(name){
     return `Hello ${name}`
 }
 
@@ -19,12 +19,12 @@ var sayHello = function(name){
 
 // 3. arrow function (es6) =>
 
-var sayHello = (name,age) => {
+var sayHello2 = (name,age) => {
     // code
     return `Chào mừng bạn ${name}`
 }
 
-var sayHello = name => `Chào mừng 2 ${name}`
+var sayHello3 = name => `Chào mừng 2 ${name}`
 
 // console.log(sayHello("Bắc"));
 
@@ -160,8 +160,16 @@ var obj = {
 // if(obj.child){
 //     console.log(obj.child.name);
 // }
-console.log(obj?.child?.name);
+// console.log(obj?.child?.name);
 
+
+//module (import, export)
+
+import title,{home,greeting} from './services.js'
+
+console.log(title);
+console.log(home);
+greeting()
 
 
 
