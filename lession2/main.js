@@ -141,7 +141,29 @@ var newObj = {...obj1,...obj2}
 var a ={name: 1}
 var b = {...a};
 a.name = 2;
-console.log(b.name);
+// console.log(b.name);
+
+// Nullish ??
+
+var text; // undefined, null
+// text = 10;
+// text = text ?? 'default value';
+text ??= 'default value'
+// console.log(text);
+
+// optional chaining (?.)
+
+var obj = {
+    name:"chinhp5"
+}
+
+// if(obj.child){
+//     console.log(obj.child.name);
+// }
+console.log(obj?.child?.name);
+
+
+
 
 
 
