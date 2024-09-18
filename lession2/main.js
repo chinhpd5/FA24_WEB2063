@@ -96,9 +96,59 @@ var sum =(first,...rest)=>{
     return first;
 }
 
-console.log(sum(1,2,3,4,5));
+// console.log(sum(1,2,3,4,5));
 
-console.log(sum(1,2,3,4,5,6,7,8,9));
+// console.log(sum(1,2,3,4,5,6,7,8,9));
+
+// spread ... (phân rã)
+
+var arr1 =[1,2,3]
+var arr2 =[4,5,6]
+
+var newArr = [...arr1,...arr2];
+// console.log(newArr);
+
+var obj1 = {
+    name: "chinhpd5",
+    age: 20
+}
+
+var obj2 ={
+    name: "chinhpd6",
+}
+
+var newObj = {...obj1,...obj2}
+
+// console.log(newObj);
+
+/**
+ * // string number boolean (biến tham trị)
+ * a = 1; (gán giá trị)
+ * b = a; //1
+ * a = 2
+ * b//1
+ */
+
+/**
+ * // array object (biến tham chiếm)
+ * 
+ * a = {name:1}
+ * b = a (gán vị trí nhớ)
+ * a.name =2
+ * b.name //2
+ */
+
+var a ={name: 1}
+var b = {...a};
+a.name = 2;
+console.log(b.name);
+
+
+
+
+
+
+
 
 
 
