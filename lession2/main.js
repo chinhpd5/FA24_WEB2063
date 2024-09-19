@@ -168,7 +168,8 @@ var obj = {
 
 // module (es6) import export
 
-import title, {home,greeting}  from './service.js'
+import title, {home,greeting}  
+    from './service.js'
 
 console.log(title);
 console.log(home);
