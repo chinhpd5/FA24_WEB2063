@@ -136,7 +136,6 @@ var b = a; //1 // gán giá trị
 a = 2;
 // console.log(b); //1
 
-
 //Biến tham chiếu(array, object)
 var a = {value: 1};
 var b = a; // gán vị trí nhớ (a,b cùng tham chiếu đến 1 vị trí nhớ)
@@ -147,7 +146,30 @@ a.value = 2; //a thay đổi, b cũng thay đổi theo
 var a = {value: 1};
 var b = {...a}
 a.value = 2
-console.log(b); //1
+// console.log(b); //1
+
+// Nullish ??
+var text; // null hoặc undefined
+
+// text = text ?? 'default value';
+text ??= 'giá trị mặc định';
+ 
+// console.log(text);
+
+//optional chaining ?.
+
+var info = {
+    name: "chinhpd5"
+}
+console.log(info.name);
+console.log(info.child);
+console.log(info?.child?.name?.title); //undefined
+// if(info.child){
+//     console.log(info.child.name);
+// }
+
+//
+
 
 
 
