@@ -97,10 +97,58 @@ var sum1 = (frist,...rest)=>{
 
     return frist
 }
+// console.log(sum1(1,2,3,4,5));
+// console.log(sum1(10,2,3,4,5,6,7,8,9));
+
+// Spread ... : phân rã
+
+var arr1 = [1,2,3]
+var arr2 = [4,5,6]
+
+// var arr3 =[arr1,arr2] // [1,2,3,4,5,6] // [[1,2,3],[4,5,6]]
+// console.log(arr1.concat(arr2));
+
+var arr3 = [...arr1, ... arr2];
+// console.log(arr3);
+
+var obj1 = {
+    name: "chinhpd5",
+    age: 20
+}
+var obj2 = {
+    name : "chinhp6"
+}
+
+var newObj = {...obj1, ...obj2}
+
+// console.log(newObj);
+
+// Biến tham trị (number, string, boolean,..)
+// var a = 1;
+// var b = a;  //1 // gán giá trị
+// a = 2;
+// console.log(b); // 1
 
 
-console.log(sum1(1,2,3,4,5));
-console.log(sum1(1,2,3,4,5,6,7,8,9));
+// Biến tham chiếu (array, object)
+var a = {value: 1};
+var b = a; // gán vị trí nhớ (a,b cùng cung 1 ô nhớ)
+a.value = 2;
+// console.log(b.value); //2
+
+// deep clone
+
+var a = {value: 1};
+var b = {...a}; // gán giá trị
+a.value = 2;
+console.log(b.value); //1
+
+
+
+
+
+
+
 
 
 
