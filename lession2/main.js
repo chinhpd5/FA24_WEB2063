@@ -54,13 +54,57 @@ var info  ={
 // console.log(age);
 // console.log(childName);
 
+function showInfo(data){
+    console.log(data.name);
+    console.log(data.age);
+    console.log(data.child.name);
+}
+
 function showInfo({name,age, child:{name: childName}}){
     console.log(name);
     console.log(age);
     console.log(childName);
 }
 
-showInfo(info)
+// showInfo(info)
+
+// Rest ... : phần còn lại
+var arr2 = [1,2,4,5]
+
+var [a,...rest] = arr2;
+// console.log(a);
+// console.log(rest);
+
+//rest parameter
+var sum = (total,...rest)=>{
+    console.log(rest);
+    // let total = 0;
+    rest.forEach((item)=>{
+        // console.log(item);
+        total += item;
+    })
+    return total
+}
+
+// console.log(sum(1,2,3,4,5,6));
+
+// console.log(sum(1,2,3,4,5,6,7,8,9));
+
+var info ={
+    name:"chinhpd5",
+    age:30,
+    child: {
+        name: "chinhp6"
+    }
+}
+var {name, ...newObj} = info
+
+console.log(name);
+console.log(newObj);
+
+
+
+
 
 
 
