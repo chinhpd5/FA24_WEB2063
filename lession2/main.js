@@ -99,8 +99,60 @@ var info ={
 }
 var {name, ...newObj} = info
 
-console.log(name);
-console.log(newObj);
+// console.log(name);
+// console.log(newObj);
+
+// spread ... : phân rã 
+
+var arr1 = [1,2,3]
+var arr2 = [4,5,6]
+
+// [1,2,3,4,5,6]
+
+// arr2.forEach((item)=>{
+//     arr1.push(item)
+// })
+
+// console.log(arr1.concat(arr2));
+
+var newArr = [...arr1,...arr2];
+// console.log(newArr);
+var obj1 = {
+    name:"chinhpd5",
+    age: 20
+}
+
+var obj2 ={
+    name: "chinhpd6"
+}
+
+// var newObj = {...obj1,...obj2}
+// console.log(newObj);
+
+
+// Biến tham trị (string, number, boolean)
+var a = 1;
+var b = a; //1 // gán giá trị
+a = 2;
+// console.log(b); //1
+
+
+//Biến tham chiếu(array, object)
+var a = {value: 1};
+var b = a; // gán vị trí nhớ (a,b cùng tham chiếu đến 1 vị trí nhớ)
+a.value = 2; //a thay đổi, b cũng thay đổi theo
+// console.log(b.value);//2
+
+//gq deep clone
+var a = {value: 1};
+var b = {...a}
+a.value = 2
+console.log(b); //1
+
+
+
+
+
 
 
 
