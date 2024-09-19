@@ -141,7 +141,32 @@ a.value = 2;
 var a = {value: 1};
 var b = {...a}; // gán giá trị
 a.value = 2;
-console.log(b.value); //1
+// console.log(b.value); //1
+
+// nullish ??
+
+var name1 = 10;
+
+// name1 = name1 ?? 'Default value'; // null, undefined
+name1 ??= 'Default value'
+
+// console.log(name1);
+
+// optional chaining ?.
+
+var obj = {
+    name: "chinhpd5",
+    age: 20
+}
+
+console.log(obj.child);
+
+// if(obj.child){
+    console.log(obj?.child?.name);
+// }
+// chạy bt
+
+
 
 
 
