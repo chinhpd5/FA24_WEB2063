@@ -54,7 +54,7 @@ var info  ={
 // console.log(age);
 // console.log(childName);
 
-function showInfo(data){
+function showInfo1(data){
     console.log(data.name);
     console.log(data.age);
     console.log(data.child.name);
@@ -161,14 +161,24 @@ text ??= 'giá trị mặc định';
 var info = {
     name: "chinhpd5"
 }
-console.log(info.name);
-console.log(info.child);
-console.log(info?.child?.name?.title); //undefined
+// console.log(info.name);
+// console.log(info.child); //undefined
+// console.log(info?.child?.name); //undefined
 // if(info.child){
 //     console.log(info.child.name);
 // }
 
-//
+//module import và export (es6)
+var title = "abc"
+
+import title1, {home as home2,greeting} from './services.js'
+
+console.log(title1);
+
+console.log(home2);
+greeting();
+
+
 
 
 
