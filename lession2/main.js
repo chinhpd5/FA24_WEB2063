@@ -159,12 +159,20 @@ var obj = {
     age: 20
 }
 
-console.log(obj.child);
+// console.log(obj.child);
+// console.log(obj?.child?.name);
 
 // if(obj.child){
-    console.log(obj?.child?.name);
 // }
 // chạy bt
+
+// module (es6) import export
+
+import title, {home,greeting}  from './service.js'
+
+console.log(title);
+console.log(home);
+greeting();
 
 
 
