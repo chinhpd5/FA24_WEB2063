@@ -63,7 +63,46 @@ function showInfo({name,age,child: {name: childName}}){
     console.log(childName);
 }
 
-showInfo(info)
+// showInfo(info)
+
+//REST ... : Phần còn lại
+
+var arr1 = [1,2,3,4];
+
+var [a,...rest] = arr1
+
+// console.log(a); // 1
+// console.log(rest); // [2,3,4]
+
+var info = {
+    name: "chinhpd5",
+    age: 20,
+    child:{
+        name: "chinhpd6"
+    }
+}
+
+var {name, ...newInfo} = info;
+// console.log(name);
+// console.log(newInfo);
+
+var sum1 = (frist,...rest)=>{
+    // console.log(frist);
+    // console.log(rest);
+    
+    // let total = 0;
+    rest.forEach((item)=>{
+        frist += item
+    })
+
+    return frist
+}
+
+
+console.log(sum1(1,2,3,4,5));
+console.log(sum1(1,2,3,4,5,6,7,8,9));
+
+
 
 
 
