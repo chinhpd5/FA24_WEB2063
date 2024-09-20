@@ -59,7 +59,44 @@ function showInfo({name,age,child:{name: childName}}){
     console.log(age);
     console.log(childName);
 }
-showInfo(info)
+// showInfo(info)
+
+//REST: phần còn lại ...
+
+var arr = [1,2,3,4];
+
+var [fisrt,...rest] = arr;
+
+// console.log(fisrt);
+// console.log(rest);
+
+var info = {
+    name: "chinhpd5",
+    age: 20,
+    child:{
+        name: "chinhpd6"
+    }
+}
+
+var {name, ...restObj} = info;
+// console.log(name);//chinhpd5
+// console.log(restObj);
+
+var sum =(a,...rest)=>{
+    // console.log(rest);
+    // let total =0;
+    rest.forEach((item,index)=>{
+        a += item
+    })
+    return a
+    
+}
+
+console.log(sum(1,2,3,4,5));
+console.log(sum(1,2,3,4,5,6,7,8,9));
+
+
+
 
 
 
