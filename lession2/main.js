@@ -134,10 +134,44 @@ var newObj = {...obj1,...obj2};
 // a.value = 2;
 // console.log(b.value); //2
 
-var a ={value:1};
-var b = {...a} //spread
-a.value = 2;
-console.log(b.value); //1
+// var a ={value:1};
+// var b = {...a} //spread
+// a.value = 2;
+// console.log(b.value); //1
+
+
+//Default Parameter 
+var tong = (a=1,b=0) => a+b;
+
+// console.log(tong());
+
+// Nullish ??
+var aa;// undefined ,null
+// aa = "chinhpd5";
+// aa = aa ?? 'default value'
+aa ??= 'default'
+
+// console.log(aa);
+//optional chaining ?.
+
+var obj ={
+    name:"chinhpd5"
+}
+
+console.log(obj.name);
+console.log(obj.child);
+console.log(obj?.child?.name?.value?.abc); //undefined
+
+
+
+// if(obj.child){
+//     console.log(obj.child.name);
+// }
+
+
+
+
+
 
 
 
