@@ -27,7 +27,43 @@ var sayHello3 = (name,age)=>{
 
 var sayHello4 = name => `Chào mừng ${name}`
 
-console.log(sayHello4("Bắc"));
+// console.log(sayHello4("Bắc"));
+
+// Destructuring
+var arr = [1,2,3];
+
+var [a,,c] = arr;
+
+// console.log(a); // 1
+// // console.log(b); // 2
+// console.log(c); // 3
+
+var info = {
+    name: "chinhpd5",
+    age: 20,
+    child:{
+        name: "chinhpd6"
+    }
+}
+
+var {name,age,child:{name: childName}} = info;
+// console.log(name);
+// console.log(age);
+// console.log(childName);
+
+function showInfo({name,age,child:{name: childName}}){
+    // console.log(data.name);
+    // console.log(data.age);
+    // console.log(data.child.name);
+    console.log(name);
+    console.log(age);
+    console.log(childName);
+}
+showInfo(info)
+
+
+
+
 
 
 
