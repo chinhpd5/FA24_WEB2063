@@ -70,7 +70,45 @@ const showInfo =({name,age, child:{name : childName}})=>{
     console.log(childName);
 }
 
-showInfo(info)
+// showInfo(info)
+
+// Rest ... : phần còn lại
+
+var arr = [1,2,3,4,5];
+var [first,...rest] = arr;
+
+// console.log(first);
+// console.log(rest);
+
+var info ={
+    name: "chinhpd5",
+    age:20,
+    child:{
+        name: "chinhpd6"
+    }
+}
+
+var {name, ...restObj} = info;
+// console.log(name);
+// console.log(restObj);
+
+var sum = (a,...rest)=>{
+    // console.log(rest);
+    // let total=0;
+    rest.forEach((item,index)=>{
+        // console.log(item);
+        // console.log(index);
+        a += item;
+    })
+    return a
+    
+}
+
+console.log(sum(1,2,3,4,5,6));
+
+console.log(sum(1,2,3,5,6,7,8,9));
+
+
 
 
 
