@@ -173,9 +173,9 @@ var obj ={
     name:"chinhpd5"
 }
 
-console.log(obj.name);// chinhpd5
-console.log(obj.child); // undefined
-console.log(obj.child?.name?.value); //undefined 
+// console.log(obj.name);// chinhpd5
+// console.log(obj.child); // undefined
+// console.log(obj.child?.name?.value); //undefined 
 
 
 // if(obj.child){
@@ -185,7 +185,15 @@ console.log(obj.child?.name?.value); //undefined
 //     }
 // }
 
-//
+// module import export 
+import abc, {home as myHome,greeting} from "./service.js";
+
+console.log(abc);
+console.log(myHome);
+
+greeting()
+
+
 
 
 
