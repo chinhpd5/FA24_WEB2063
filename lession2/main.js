@@ -140,10 +140,48 @@ var newObj = {...obj1, ...obj2}
 
 
 // deep clone
-var a = {value: 1};
-var b = {...a};  // 1
-a.value = 2; 
-console.log(b.value); // 1
+// var a = {value: 1};
+// var b = {...a};  // 1
+// a.value = 2; 
+// console.log(b.value); // 1
+
+// Nullish ??
+
+var text="chinhpd5"; // undefined,null
+
+// text = text ?? 'default value';
+text ??= 'default'
+
+// console.log(text);
+
+// optional chaining ?.
+var obj ={
+    name:"chinhpd5"
+}
+
+// console.log((obj.name)); // chinhpd5
+// console.log((obj.child)); // undefined
+// console.log((obj?.child?.name));
+
+// if(obj.child){
+//     console.log((obj.child.name));
+//     if(obj.child.name){
+//         console.log(obj.child.name.value);
+//     }
+// }
+
+// module import export
+import title, {home as homeChinhpd5,greeting} from './services.js'
+
+console.log(title);
+console.log(homeChinhpd5);
+
+greeting();
+
+
+
+
+
 
 
 
