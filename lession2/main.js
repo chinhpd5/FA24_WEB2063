@@ -97,9 +97,58 @@ var sum = (a,...rest)=>{
     return a
     
 }
-console.log(sum(1,2,3,4,5));
+// console.log(sum(1,2,3,4,5));
 
-console.log(sum(1,2,3,4,5,6,7,8,9));
+// console.log(sum(1,2,3,4,5,6,7,8,9));
+
+// spread ... : phân rã
+
+var arr1 = [1,2,3];
+var arr2 = [4,5,6];
+
+//[1,2,3,4,5,6]
+
+// console.log(arr1.concat(arr2));
+//push
+
+var newArr = [...arr1,...arr2]
+// console.log(newArr);
+
+var obj1 ={
+    name:"chinhpd5",
+    age:20
+}
+
+var obj2 ={
+    name:"chinhpd6"
+}
+
+var newObj = {...obj1, ...obj2}
+// console.log(newObj);
+// Biến tham trị (string , number, boolean)
+// var a = 1;
+// var b = a;//1 // gán giá trị của a cho b
+// a = 2;
+// console.log(b); //1
+
+
+// Biến tham chiếu (array, object)
+// var a = {value: 1};
+// var b = a; // gán vị trí nhớ của a cho b, (a và b cùng trỏ đến 1 ô nhớ)
+// a.value = 2; // khi thay đổi giá trị của a thì b cũng thay đổi theo
+// console.log(b.value); // 2
+
+
+// deep clone
+var a = {value: 1};
+var b = {...a};  // 1
+a.value = 2; 
+console.log(b.value); // 1
+
+
+
+
+
 
 
 
