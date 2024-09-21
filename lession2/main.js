@@ -129,7 +129,6 @@ var obj1 ={
     name: "chinhpd5",
     age: 20
 }
-
 var obj2 = {
     name:"chinhpd6"
 }
@@ -152,12 +151,44 @@ var newObj = {...obj1,...obj2}
 // a.value = 2; // b cũng thay đổi theo a
 // console.log(b.value);//2
 
-var a = {value: 1}; // object
-var b = {...a}; 
-a.value = 2; 
-console.log(b.value);//1
+// var a = {value: 1}; // object
+// var b = {...a}; 
+// a.value = 2; 
+// console.log(b.value);//1
 
 // deep clone
+
+// Nullish ??
+
+var text;//undefined, null
+
+// text = text ?? 'default value';
+text ??= 'default';
+
+// console.log(text); 
+
+//Opitonal chaining ?.
+
+var obj ={
+    name:"chinhpd5"
+}
+
+console.log(obj.name);// chinhpd5
+console.log(obj.child); // undefined
+console.log(obj.child?.name?.value); //undefined 
+
+
+// if(obj.child){
+//     console.log(obj.child.name);
+//     if(obj.child.name){
+//         console.log(obj.child.name.value);
+//     }
+// }
+
+//
+
+
+
 
 
 
