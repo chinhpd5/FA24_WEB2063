@@ -59,15 +59,41 @@ list.forEach((item,index)=>{
 const tbodyElement = document.querySelector('tbody');
 tbodyElement.innerHTML = trElement;
 
-// find: Tìm kiếm phần tử gần nhất trong mảng thoải mãn điều kiện
+// find: duyệt qua mảng 
+// Tìm kiếm phần tử gần nhất trong mảng thoải mãn điều kiện (return)
 // khi thỏa mãn điều kiện -> kết thúc vòng lặp
 
 const findItem = list.find((item,index)=>{
-    console.log(index);
-    return item.gender == false;
+    // console.log(index);
+    return item.name == "chinhpd8";
 })
 //  tìm kiếm phần tử có name = "chinhpd8"
 
-console.log(findItem);
+// console.log(findItem);
+
+// every: duyệt qua 1 mảng : boolean (true | false)
+// kiểm tra xem toàn bộ phần tử trong mảng có thoải mãn Đk (return) -> true
+// có ít nhất 1 phần tử không thoải mãn -> false -> kết thúc vòng lặp
+
+const checkEvery = list.every((item,index)=>{
+    // console.log(index);
+    return item.mark <= 9;
+})
+// console.log(checkEvery);
+
+// some: duyệt qua 1 mảng: boolean (true | false)
+// Kiểm tra có ít nhất 1 phần tử thỏa mãn ĐK (return) -> true -> kết thúc vòng lặp
+// nếu tất cả các phần tử trong mảng KHÔNG thỏa mãn ĐK -> false
+
+const checkSome = list.some((item,index)=>{
+    console.log(index);
+    
+    return item.mark < 5
+})
+
+console.log(checkSome);
+
+
+
 
 
