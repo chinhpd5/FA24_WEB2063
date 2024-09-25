@@ -121,9 +121,9 @@ trElements = list.filter((item,index)=>{
     return item.mark > 7;
 })
 
-console.log(trElements);
+// console.log(trElements);
 
-const newtrElements = trElements.map((item,index)=>{
+const newtrElements = list.map((item,index)=>{
     return `
         <tr>
             <th scope="row">${index + 1}</th>
@@ -135,6 +135,17 @@ const newtrElements = trElements.map((item,index)=>{
     `
 }).join('');
 tbodyElement.innerHTML = newtrElements;
+
+// reduce : lặp qua mảng
+// prevValue: biến lưu trữ giá trị trước đó
+// item: giá trị của phần tử qua các lần lặp
+// index: vị trí của item
+
+const total = list.reduce((prevValue,item,index)=>{
+    return prevValue += item.mark // cộng dồn điểm qua các lần lặp
+},0)
+
+console.log(total);
 
 
 
