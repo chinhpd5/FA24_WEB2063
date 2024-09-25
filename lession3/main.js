@@ -97,7 +97,7 @@ const checkSome = list.some((item,index)=>{
 // trả về 1 mảng mới(return)
 
 
-const trElements = list.map((item,index)=>{
+let trElements = list.map((item,index)=>{
     return `
         <tr>
             <th scope="row">${index + 1}</th>
@@ -109,8 +109,32 @@ const trElements = list.map((item,index)=>{
     `
 }).join(''); // join: chuyển 1 mảng về 1 chuỗi
 
+// console.log(trElements);
+// tbodyElement.innerHTML = trElements;
+
+
+// filter: duyệt qua toàn bộ phần tử trong mảng
+// trả về 1 mảng mới
+// các phần tử thỏa mãn điều kiện (return)
+
+trElements = list.filter((item,index)=>{
+    return item.mark > 7;
+})
+
 console.log(trElements);
-tbodyElement.innerHTML = trElements;
+
+const newtrElements = trElements.map((item,index)=>{
+    return `
+        <tr>
+            <th scope="row">${index + 1}</th>
+            <td>${item.name}</td>
+            <td>${ item.gender == true ? "Nam": "Nữ" }</td>
+            <td>${item.age}</td>
+            <td>${item.mark}</td>
+        </tr>
+    `
+}).join('');
+tbodyElement.innerHTML = newtrElements;
 
 
 
