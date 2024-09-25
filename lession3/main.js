@@ -37,7 +37,7 @@ const list =[
 
 ]
 
-// forEach
+// forEach: chỉ duyệt qua tất các phần tử trong mảng
 let trElement= ''
 
 list.forEach((item,index)=>{
@@ -57,7 +57,7 @@ list.forEach((item,index)=>{
 // console.log(trElement);
 
 const tbodyElement = document.querySelector('tbody');
-tbodyElement.innerHTML = trElement;
+// tbodyElement.innerHTML = trElement;
 
 // find: duyệt qua mảng 
 // Tìm kiếm phần tử gần nhất trong mảng thoải mãn điều kiện (return)
@@ -86,12 +86,31 @@ const checkEvery = list.every((item,index)=>{
 // nếu tất cả các phần tử trong mảng KHÔNG thỏa mãn ĐK -> false
 
 const checkSome = list.some((item,index)=>{
-    console.log(index);
+    // console.log(index);
     
     return item.mark < 5
 })
 
-console.log(checkSome);
+// console.log(checkSome);
+
+// map: duyệt qua toàn bộ phần tử trong mảng; 
+// trả về 1 mảng mới(return)
+
+
+const trElements = list.map((item,index)=>{
+    return `
+        <tr>
+            <th scope="row">${index + 1}</th>
+            <td>${item.name}</td>
+            <td>${ item.gender == true ? "Nam": "Nữ" }</td>
+            <td>${item.age}</td>
+            <td>${item.mark}</td>
+        </tr>
+    `
+}).join(''); // join: chuyển 1 mảng về 1 chuỗi
+
+console.log(trElements);
+tbodyElement.innerHTML = trElements;
 
 
 
