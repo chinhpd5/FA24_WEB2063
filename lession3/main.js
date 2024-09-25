@@ -58,3 +58,16 @@ list.forEach((item,index)=>{
 
 const tbodyElement = document.querySelector('tbody');
 tbodyElement.innerHTML = trElement;
+
+// find: Tìm kiếm phần tử gần nhất trong mảng thoải mãn điều kiện
+// khi thỏa mãn điều kiện -> kết thúc vòng lặp
+
+const findItem = list.find((item,index)=>{
+    console.log(index);
+    return item.gender == false;
+})
+//  tìm kiếm phần tử có name = "chinhpd8"
+
+console.log(findItem);
+
+
