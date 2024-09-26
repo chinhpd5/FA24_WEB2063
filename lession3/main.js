@@ -67,13 +67,41 @@ tbodyElement.innerHTML = trElements;
 // nếu không có phần tử nào thỏa mãn -> undefined
 
 const findItem = list.find((item,index)=>{
-    console.log(index);
+    // console.log(index);
     
     return item.mark == 9;
 })
 // tìm kiếm 1 phần tử có giới tính là Nữ gần nhất
 
-console.log(findItem);
+// console.log(findItem);
+
+//every: trả về boolean (true | false)
+// duyệt qua mảng, nếu tất cả các phần tử trong mảng thỏa mãn ĐK (return) -> true
+// Nếu có ít nhất 1 phần tử KHÔNG thỏa mãn ĐK -> flase -> kết thúc vòng lặp
+
+const checkEvery = list.every((item,index)=>{
+    // console.log(index);
+    return item.mark >= 9;
+})
+
+// console.log(checkEvery);
+
+
+// some: trả về boolean (true|false)
+// duyệt qua mảng, nếu có ít nhất 1 phần tử thỏa mãn ĐK (return)-> true -> kết thúc vòng lặp
+// nếu tất cả các phần tử KHÔNG thỏa mãn ĐK (return)-> false
+
+const checkSome = list.some((item,index)=>{
+    console.log(index);
+    return item.mark < 5; // item.gender == false
+})
+
+console.log(checkSome);
+
+
+
+
+
 
 
 
