@@ -145,7 +145,7 @@ const total = list.reduce((prevValue,item,index)=>{
     return prevValue += item.mark // cộng dồn điểm qua các lần lặp
 },0)
 
-console.log(total);
+// console.log(total);
 
 
 
