@@ -112,29 +112,41 @@ trElements = list.map((item,index)=>{
 
 
 // console.log(trElements);
-// tbodyElement.innerHTML = trElements
+tbodyElement.innerHTML = trElements
 
 // filter: duyệt qua toàn bộ phần tử trong mảng
 // trả về mảng mới thỏa mãn điều kiện (return);
 
-let filterList = list.filter((item,index)=>{
-    return item.mark >= 8; //  item.gender == true
-})
+// let filterList = list.filter((item,index)=>{
+//     return item.mark >= 8; //  item.gender == true
+// })
 
-filterList.map((item,index)=>{
-    return `
-        <tr>
-            <th scope="row">${index + 1}</th>
-            <td>${item.name}</td>
-            <td>${item.age}</td>
-            <td>${ item.gender == true ? "Nam": "Nữ" }</td>
-            <td>${item.mark}</td>
-          </tr>
-    `
-}).join("");
+// filterList.map((item,index)=>{
+//     return `
+//         <tr>
+//             <th scope="row">${index + 1}</th>
+//             <td>${item.name}</td>
+//             <td>${item.age}</td>
+//             <td>${ item.gender == true ? "Nam": "Nữ" }</td>
+//             <td>${item.mark}</td>
+//           </tr>
+//     `
+// }).join("");
 
-console.log(filterList);
-tbodyElement.innerHTML = filterList
+// // console.log(filterList);
+// tbodyElement.innerHTML = filterList
+
+// reduce: duyệt qua toàn bộ phần tử trong và tính toán
+//prevValue: giá trị lưu trữ qua các lần lặp
+// item: giá trị của từng phần tử trong mảng
+// index: vị trí của từng phần tử
+
+const total = list.reduce((prevValue, item,index)=>{
+    return prevValue += item.mark;
+},0)
+
+console.log(total);
+
 
 
 
