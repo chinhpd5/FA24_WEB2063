@@ -30,7 +30,7 @@ const list = [
     },
     {
         name: "chinhpd9",
-        age:20,
+        age:18,
         gender: false,
         mark: 8
     }
@@ -57,5 +57,19 @@ list.forEach((item,index)=>{
 const tbodyElement = document.querySelector('tbody');
 
 tbodyElement.innerHTML = trElements;
+// Bootstrap IntelliSense
 
+
+//  find: duyệt qua mảng và tìm kiếm 1 phần tử trong mảng
+// điều kiện tìm kiếm nằm ở return
+// nếu có ít nhất 1 phần tử thoải mãn ĐK -> kết thúc vòng lặp
+
+const findItem = list.find((item,index)=>{
+    // console.log(index);
+    
+    return item.age < 19;
+})
+// tìm thông tin sv có giới tính là Nữ đầu tiên
+
+console.log(findItem);
 
