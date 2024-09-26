@@ -71,5 +71,29 @@ const findItem = list.find((item,index)=>{
 })
 // tìm thông tin sv có giới tính là Nữ đầu tiên
 
-console.log(findItem);
+// console.log(findItem);
+
+// every: trả về giá trị boolean (true| false)
+// duyệt qua mảng, nếu tất cả các phần tử thỏa mãn ĐK (return) -> true
+// nếu có ít nhất 1 phần tử trong mảng KHÔNG thỏa mãn ĐK -> false
+
+const checkEvery = list.every((item,index)=>{
+    // console.log(index);
+    
+    return item.mark > 8;
+})
+
+// console.log(checkEvery);
+
+// some: trả về giá trị boolean (true|false)
+// duyệt qua mảng, nếu có ít nhất 1 phần tử thỏa mãn ĐK (return) -> true -> kết thúc vòng lặp
+// nếu KHÔNG có phần tử nào thỏa mãn ĐK -> false
+
+const checkSome = list.some((item,index)=>{
+    console.log(index);
+    return !item.gender;  // item.gender == false
+})
+console.log(checkSome);
+
+
 
