@@ -123,8 +123,20 @@ tbodyElement.innerHTML = trElements;
 let filterELement = list.filter((item,index)=>{
     return item.gender;
 })
-// tìm những người lớn hơn hoặc bằng 9
-console.log(filterELement);
+// tìm những người có điểm lớn hơn hoặc bằng 9
+// console.log(filterELement);
+
+// reduce
+// preValue: giá trị lưu trữ qua các lần lặp
+// item: giá trị các phần tử
+// index: vị trí
+
+const total = list.reduce((preVlaue,item,index)=>{
+    return preVlaue += item.mark
+},0)
+
+
+console.log(total);
 
 
 
