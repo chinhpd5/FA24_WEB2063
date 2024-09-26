@@ -33,7 +33,7 @@ const list = [
         name: "chinhpd9",
         age:20,
         gender: false,
-        mark: 8
+        mark: 9
     }
 ]
 
@@ -56,8 +56,24 @@ list.forEach((item,index)=>{
     `
 })
 
-console.log(trElements);
+// console.log(trElements);
 
 const tbodyElement = document.querySelector('tbody');
 
 tbodyElement.innerHTML = trElements;
+
+// find: duyệt qua mảng và tìm kiếm 1 phần tử gần nhất trong mảng thỏa mãn điều kiện *return
+// nếu có ít nhất 1 phần tử -> kết thúc vòng lặp
+// nếu không có phần tử nào thỏa mãn -> undefined
+
+const findItem = list.find((item,index)=>{
+    console.log(index);
+    
+    return item.mark == 9;
+})
+// tìm kiếm 1 phần tử có giới tính là Nữ gần nhất
+
+console.log(findItem);
+
+
+
