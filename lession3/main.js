@@ -90,7 +90,7 @@ const checkEvery = list.every((item,index)=>{
 // nếu KHÔNG có phần tử nào thỏa mãn ĐK -> false
 
 const checkSome = list.some((item,index)=>{
-    console.log(index);
+    // console.log(index);
     return !item.gender;  // item.gender == false
 })
 // console.log(checkSome);
@@ -111,8 +111,32 @@ trElements = list.map((item,index)=>{
 }).join("");// join: chuyển 1 mảng về 1 chuỗi
 
 
-console.log(trElements);
-tbodyElement.innerHTML = trElements
+// console.log(trElements);
+// tbodyElement.innerHTML = trElements
+
+// filter: duyệt qua toàn bộ phần tử trong mảng
+// trả về mảng mới thỏa mãn điều kiện (return);
+
+let filterList = list.filter((item,index)=>{
+    return item.mark >= 8; //  item.gender == true
+})
+
+filterList.map((item,index)=>{
+    return `
+        <tr>
+            <th scope="row">${index + 1}</th>
+            <td>${item.name}</td>
+            <td>${item.age}</td>
+            <td>${ item.gender == true ? "Nam": "Nữ" }</td>
+            <td>${item.mark}</td>
+          </tr>
+    `
+}).join("");
+
+console.log(filterList);
+tbodyElement.innerHTML = filterList
+
+
 
 
 
