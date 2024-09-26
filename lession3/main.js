@@ -114,8 +114,18 @@ trElements = list.map((item,index)=>{
     `
 }).join("");//join: chuyển 1 mảng về 1 chuỗi
 
-console.log(trElements);
+// console.log(trElements);
 tbodyElement.innerHTML = trElements;
+
+//filter: duyệt qua toàn bộ phần tử trong mảng 
+//trả về 1 mảng mới với các phần tử thỏa mãn ĐK return
+
+let filterELement = list.filter((item,index)=>{
+    return item.gender;
+})
+// tìm những người lớn hơn hoặc bằng 9
+console.log(filterELement);
+
 
 
 
