@@ -56,7 +56,7 @@ list.forEach((item,index)=>{
 // console.log(trElements);
 const tbodyElement = document.querySelector('tbody');
 
-tbodyElement.innerHTML = trElements;
+// tbodyElement.innerHTML = trElements;
 // Bootstrap IntelliSense
 
 
@@ -93,7 +93,26 @@ const checkSome = list.some((item,index)=>{
     console.log(index);
     return !item.gender;  // item.gender == false
 })
-console.log(checkSome);
+// console.log(checkSome);
+
+// map: duyệt qua toàn bộ phần tử trong mảng
+// có thể trả về 1 mảng mới thông qua return
+
+trElements = list.map((item,index)=>{
+    return `
+        <tr>
+            <th scope="row">${index + 1}</th>
+            <td>${item.name}</td>
+            <td>${item.age}</td>
+            <td>${ item.gender == true ? "Nam": "Nữ" }</td>
+            <td>${item.mark}</td>
+          </tr>
+    `
+}).join("");// join: chuyển 1 mảng về 1 chuỗi
+
+
+console.log(trElements);
+tbodyElement.innerHTML = trElements
 
 
 
