@@ -62,9 +62,36 @@ tbodyElement.innerHTML = trElements
 // Nếu KHÔNG có phần tử nào thỏa mãn ĐK  -> undefined
 
 const findItem = list.find((item,index)=>{
-    console.log(index);
+    // console.log(index);
     return item.mark == 9;
 }) 
 
-console.log(findItem);
+// console.log(findItem);
+
+
+// every: duyệt qua mảng: trả về giá trị boolean(true|false)
+// kiểm tra toàn bộ phần tử trong mảng thỏa mãn ĐK (return) -> true
+// nếu có ít nhất 1 phần tử không thỏa mãn ĐK -> false -> kết thúc vòng lặp
+
+const checkEvery = list.every((item,index)=>{
+    // console.log(index);
+    return item.mark > 9;
+})
+
+// console.log(checkEvery);
+
+// some: duyệt qua mảng: trả về giá trị boolean(true|false)
+// Kiểm tra trong mảng xem có ít nhất 1 phần thỏa mãn ĐK (return) -> true -> kết thúc vòng lặp
+// Nếu tất các phần tử trong mảng KHÔNG thỏa mãn ĐK -> false
+
+const checkSome = list.some((item,index)=>{
+    console.log(index);
+    return item.mark < 5
+})
+// Kiểm tra trong mảng có sinh viên là nữ hay không?
+
+console.log(checkSome);
+
+
+
 
