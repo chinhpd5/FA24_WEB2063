@@ -107,8 +107,32 @@ const newList = list.map((item,index)=>{
     `
 }).join("");// join: chuyển mảng về 1 chuỗi
 
-console.log(newList);
+// console.log(newList);
 tbodyElement.innerHTML = newList;
+
+
+//filter: duyệt qua toàn bộ phần tử trong mảng
+// trả về 1 mảng mới chứa các phần tử thỏa mãn ĐK (return)
+
+const filterList = list.filter((item,index)=>{
+
+    return item.mark > 8;
+})
+
+// console.log(filterList);
+
+//reduce: duyệt qua toàn bộ phần tử trong mảng, tính toán
+// preValue: giá trị lưu trữ qua các lần lặp
+// item: giá trị của các phần tử
+// index: vị
+// 10 là giá trị khởi tạo cho preValue
+
+const total = list.reduce((preValue,item,index)=>{
+    return preValue += item.mark
+},10)
+
+console.log(total);
+
 
 
 
