@@ -106,8 +106,26 @@ const newList  = list.map((item,index)=>{
     `
 }).join('');// join chuyển 1 mảng về 1 chuỗi
 
-console.log(newList);
+// console.log(newList);
 tbobyElement.innerHTML = newList;
 
 
+//filter: duyệt qua toàn bộ phần tử trong mảng
+// trả về 1 mảng mới có các phần tử thỏa mãn ĐK (return)
+
+const filterList = list.filter((item,index)=>{
+    return item.mark > 8 ; //item.gender == true
+})
+
+// console.log(filterList);
+
+// reduce: duyệt qua toàn bộ phần tử trong mảng và tính toán
+// preValue: giá trị lưu trữ qua các lần lặp
+// item: giá trị của các phần tử
+// index: vị trí
+const total = list.reduce((preValue,item,index)=>{
+    return preValue += item.mark;
+},0)
+
+console.log(total);
 
