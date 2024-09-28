@@ -65,9 +65,31 @@ tbobyElement.innerHTML = trElements;
 // nếu KHÔNg có phần tử nào thỏa mãn ĐK -> undefined
 
 const findItem  = list.find((item,index)=>{
-    console.log(index);
-    
+    // console.log(index);
     return item.mark == 9;
 })
-console.log(findItem);
+// console.log(findItem);
+
+// every: duyệt qua mảng, trả về giá trị boolean (true| false)
+// Kiểm tra xem toàn bộ các phần tử trong mảng có thỏa mãn ĐK (return) -> true
+// Nếu có ít nhất 1 phần tử KHÔNG thỏa mãn ĐK -> false -> kết thúc vòng lặp
+const checkEvery = list.every((item,index)=>{
+    // console.log(index);
+    return item.mark > 8;
+})
+
+// console.log(checkEvery);
+
+// some: duyệt qua mảng, trả về giá trị boolean (true | false)
+// Kiểm tra xem trong mảng có ít nhất 1 phần thỏa mãn ĐK (return) -> true -> kết thúc vòng lặp
+// Nếu tất cả các phần tử Không thỏa mãn ĐK (return) -> false
+
+const checkSome = list.some((item,index)=>{
+    console.log(index);
+    return !item.gender; //item.gender == false
+})
+
+console.log(checkSome);
+
+
 
