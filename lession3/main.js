@@ -54,7 +54,20 @@ list.forEach((item,index)=>{
     `
 })
 
-console.log(trElements);
+// console.log(trElements);
 const tbobyElement= document.querySelector('tbody');
 
 tbobyElement.innerHTML = trElements;
+
+
+// find: duyệt mảng, tìm kiếm 1 phần tử gần nhất thỏa mãn ĐK (return)
+// nếu có ít nhất 1 phần tử thỏa mãn ĐK -> kết thúc vòng lặp
+// nếu KHÔNg có phần tử nào thỏa mãn ĐK -> undefined
+
+const findItem  = list.find((item,index)=>{
+    console.log(index);
+    
+    return item.mark == 9;
+})
+console.log(findItem);
+
