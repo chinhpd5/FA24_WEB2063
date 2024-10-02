@@ -8,13 +8,13 @@
 // 1 2 3
 
 //ví dụ 2
-console.log(1);
+// console.log(1);
 
-setTimeout(()=>{
-    console.log(2);
-},3000) // chờ 3s rồi thực thi ()=>{}
+// setTimeout(()=>{
+//     console.log(2);
+// },3000) // chờ 3s rồi thực thi ()=>{}
 
-console.log(3);
+// console.log(3);
 
 // 1 -> chờ 3s in 2 -> 3
 
@@ -45,3 +45,44 @@ console.log(3);
  * 2 -> 1 
  * 1 -> 2 (xử lý bất đồng bộ)
  */
+
+// callback: hàm gọi lại trong 1 hàm khác thông qua 1 tham số
+
+function sayHello(name){
+    console.log(`Xin Chào ${name}`);
+}
+
+function greeting(callback){ // number string boolean array object function
+    callback("chinhpd5")
+}
+
+// greeting(sayHello);
+
+// fake 1 tác vụ bất đồng bộ
+function delay(callback,ms){
+    setTimeout(()=>{
+        const data = "Bất đồng bộ: Việc 2"
+        callback(data);
+    },ms)// chờ đợi ms s trả về data thông qua callback
+}
+
+function doingCallback (){
+    console.log("Việc 1");
+    delay((res)=>{
+        console.log(res); // "Bất đồng bộ: Việc 2"
+        console.log("Việc 3");
+
+        // console.log("Việc 4");
+        // delay((res)=>{
+        //     console.log(res); // "Bất đồng bộ: Việc 2"
+        //     console.log("Việc 6");
+
+        // },1000)
+        
+    },1500)// 1.5 s
+
+}
+
+doingCallback()
+
+// callback hell -> sử dụng promise để giải quyết
