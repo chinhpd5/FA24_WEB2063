@@ -150,4 +150,28 @@ function doingPromise(){
         })
 }
 
-doingPromise();
+// doingPromise();
+
+// async / await
+
+async function doingAsync(){
+    try {
+        console.log("việc 1");
+
+        const data = await delay(1500);// bất đồng bộ
+        console.log(data);
+
+        console.log('Việc 3');
+
+        console.log("việc 4");
+
+        const data1 = await delay(1500);// bất đồng bộ
+        console.log(data1);
+
+        console.log('Việc 5');
+    } catch (error) {
+        console.log("lỗi "+ error);
+    }
+}
+
+doingAsync();
