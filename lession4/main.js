@@ -72,17 +72,82 @@ function doingCallback (){
         console.log(res); // "Bất đồng bộ: Việc 2"
         console.log("Việc 3");
 
-        // console.log("Việc 4");
-        // delay((res)=>{
-        //     console.log(res); // "Bất đồng bộ: Việc 2"
-        //     console.log("Việc 6");
+        console.log("Việc 4");
+        delay((res)=>{
+            console.log(res); // "Bất đồng bộ: Việc 2"
+            console.log("Việc 6");
 
-        // },1000)
+            console.log("Việc 4");
+            delay((res)=>{
+                console.log(res); // "Bất đồng bộ: Việc 2"
+                console.log("Việc 6");
+    
+            },1000)
+
+        },1000)
         
     },1500)// 1.5 s
-
 }
 
-doingCallback()
+// doingCallback()
 
 // callback hell -> sử dụng promise để giải quyết
+
+// Promise
+
+
+// khai báo
+const myPromise = new Promise((reslove,reject)=>{ // bất đồng bộ
+    const isCheck = true;
+    if(isCheck){
+        // thành công
+        reslove("Thành công")
+    }else{
+        // thất bại
+        reject("Thất bại")
+    }
+})
+
+// thực thi
+// myPromise
+//     .then((data)=>{
+//         console.log(data);
+//     })
+//     .catch((err)=>{
+//         console.log(err);
+//     })
+//     .finally(()=>{
+//         console.log("Kết thúc");
+//     })
+
+function delay(ms){
+    return new Promise((reslove,reject)=>{
+        const isCheck = true;
+        setTimeout(()=>{
+            if(isCheck){
+                reslove("Việc bất đồng bộ")
+            }else{
+                reject("Thất bại")
+            }
+        },ms)
+    })
+}
+
+function doingPromise(){
+    console.log("Việc 1");
+    delay(1500)
+        .then((res)=>{
+            console.log(res);
+            console.log("việc 3");
+            return delay(2000); // trả về 1 tác vụ bất đồng bộ khác
+        })
+        .then((data)=>{ // kết quẩ nhận lại trong .then tiếp theo
+            console.log(data);
+            console.log("Việc 4");
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+}
+
+doingPromise();
