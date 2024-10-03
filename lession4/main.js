@@ -69,7 +69,6 @@ function delay(ms,callback){
     },ms)
 }
 
-
 function doingCallback(){
     console.log("Việc 1"); // đồng bộ
     delay(1500,(data)=>{
@@ -79,11 +78,91 @@ function doingCallback(){
         //==========
         delay(2000,(data)=>{
             console.log(data);
-            console.log("Việc 3");
+            delay(2000,(data)=>{
+                console.log(data);
+                delay(2000,(data)=>{
+                    console.log(data);
+                    delay(2000,(data)=>{
+                        console.log(data);
+                        
+                    })
+                    
+                })
+            })
             
         })
     })
 
 }
 
-doingCallback();
+// doingCallback();
+// callback hell
+
+// promise: Lời hứa
+// khởi tạo lời hứa
+// const myPromise = new Promise((reslove, reject)=>{
+//     const isCheck = false;
+//     if(isCheck){
+//         reslove("Thành công")
+//     }else{
+//         reject("Thất bại")
+//     }
+// })
+
+// thực thi
+// myPromise
+//     .then((data)=>{
+//         console.log(data);
+//     })// thành công: reslove
+//     .catch((err)=>{
+//         console.log(err);
+//     }) // thất bại: reject
+//     .finally(()=>{
+//         console.log("Hoàn thoành");
+//     }) // Kết thúcc
+
+// fake 1 tác vụ bất đồng bộ
+function delay(ms){
+    //promise
+    return new Promise((reslove,reject)=>{
+
+        setTimeout(()=>{
+            const isCheck= true;
+            if(isCheck){
+                reslove("Hoàn thành tác vụ bất đồng bộ");
+            }else{
+                reject("Thất bại")
+            }
+        },ms)
+
+    })
+}
+
+function doingPromise(){
+    console.log("Việc 1");
+    delay(1500)
+        .then((data)=>{
+            console.log(data);
+            console.log("Việc 2");
+            return delay(2000);//khi return về Promise -> thực thi trong then tiếp theo
+        })
+        .then(data=>{
+            console.log(data);
+            console.log("Việc 3");
+            return delay(3000)
+        })
+        .then(data=>{
+            console.log(data);
+            console.log("Việc 4");
+            return delay(1000)// lỗi -> k chạy then (5)-> catch
+        })
+        .then(data=>{
+            console.log(data);
+            console.log("Việc 5");
+        })
+        .catch(err => {
+            console.log(err);
+        })
+        //.finally()
+}
+doingPromise()
