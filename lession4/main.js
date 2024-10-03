@@ -132,7 +132,6 @@ function delay(ms){
         },ms)
     })
 }
-
 function doingPromise(){
     console.log("Việc 1");
     delay(1500)
@@ -149,4 +148,18 @@ function doingPromise(){
             console.log(err);
         })
 }
-doingPromise()
+// doingPromise()
+
+async function doingAsync(){
+    console.log("Việc 1");
+    let data = await delay(2000)
+    console.log(data);
+    console.log("việc 2");
+
+    data = await delay(2000)
+    console.log(data);
+    console.log("việc 3");
+
+}
+
+doingAsync()
