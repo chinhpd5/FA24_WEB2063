@@ -165,4 +165,21 @@ function doingPromise(){
         })
         //.finally()
 }
-doingPromise()
+// doingPromise()
+
+// async \ await
+
+async function doingAsync(){
+    console.log("việc 1");
+    const data = await delay(1500); // bất đồng bộ
+    console.log(data);
+    console.log("Việc 2");
+
+    const data1 = await delay(1500); // bất đồng bộ
+    console.log(data1);
+    console.log("Việc 3");
+
+}
+
+doingAsync();
+
