@@ -9,13 +9,13 @@
 // JS là ngôn ngữ đơn luồng (đồng bộ)
 // call api, setTimeout, setInterval, load, click,...(JS xử lý bất đồng bộ)
 
-console.log(1); // đồng bộ
+// console.log(1); // đồng bộ
 
-setTimeout(()=>{
-    console.log(2);
-},3000) // sau 3s thực thi callback // bất đồng bộ
+// setTimeout(()=>{
+//     console.log(2);
+// },3000) // sau 3s thực thi callback // bất đồng bộ
 
-console.log(3); // đồng bộ
+// console.log(3); // đồng bộ
 
 //1 -> chờ 3s in 2 -> 3 // mong đợi
 
@@ -43,3 +43,43 @@ console.log(3); // đồng bộ
  * async / await
  */
 
+// callback : hàm gọi lại trong 1 function khác, thông qua 1 tham số
+
+function sayHello(name){
+    console.log(`Xin chào ${name}`);
+}
+
+function greeting(callback){ // number. string, boolean, array object // function
+    callback("chinhpd5")
+}
+
+// greeting(sayHello);
+
+// fake 1 tác vụ bất đồng bộ
+function delay(ms,callback){
+    setTimeout(()=>{
+        const data ="Thực thi xong tác vụ bất đồng bộ"
+        callback(data);
+    },ms)
+}
+
+function doingCallback(){
+
+    console.log("việc 1"); // đồng bộ
+    delay(1500,(data)=>{
+        console.log(data); //bất đồng bộ
+        console.log("việc 2"); // đồng bộ
+
+        console.log("việc 3");
+        delay(2000,(data)=>{
+            console.log(data); 
+            console.log("Việc 4");
+            
+        })
+        
+    })
+    
+
+}
+
+doingCallback();
