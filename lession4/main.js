@@ -134,7 +134,6 @@ function delay(ms){
 
 function doingPromise(){
     console.log("việc 1");
-    
     delay(2000)
         .then((data)=>{
             console.log(data);
@@ -150,8 +149,27 @@ function doingPromise(){
         })
         .catch(err => console.log(err))// nếu có lỗi ở 1 trong những .then -> catch
         .finally()// có thể có hoặc không
-
-    
 }
 
-doingPromise();
+// doingPromise();
+
+async function doingAsync(){
+    try {
+        console.log("Việc 1");
+        const data = await delay(1000);
+        console.log(data);
+        console.log("Việc 2");
+
+        const data1 = await delay(2000);
+        console.log(data1);
+        console.log("Việc 3");
+
+        const data2 = await delay(1500);
+        console.log(data2);
+        console.log("Việc 4");
+    } catch (error) {
+        alert("lỗi")
+    }
+    
+} 
+doingAsync();
