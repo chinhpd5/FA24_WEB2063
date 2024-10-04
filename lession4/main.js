@@ -75,13 +75,83 @@ function doingCallback(){
 
         delay(2000,(data)=>{
             console.log(data); // bất đồng bộ
-            console.log("Việc 3");// đồng bộ
-            
+            delay(2000,(data)=>{
+                console.log(data); // bất đồng bộ
+                delay(2000,(data)=>{
+                    console.log(data); // bất đồng bộ
+                    delay(2000,(data)=>{
+                        console.log(data); // bất đồng bộ
+                        
+                    })
+                })
+            })
         })
         
     })
-
 }
 
-doingCallback();
+// doingCallback();
+// callback hell
     
+// promise: Lời hứa: thành công | thất
+// khai báo 1 promise
+// const myPromise = new Promise((resolve, reject)=>{
+//     const isCheck = false;
+//     if(isCheck){
+//         const data="thành công"
+//         resolve(data)
+//     }else{
+//         reject("Thất bại")
+//     }
+// })
+
+// Thực thi
+// myPromise
+//     .then((data)=>{
+//         console.log(data);
+//     })
+//     .catch((err)=>{
+//         console.log(err);
+//     })
+//     .finally(()=>{
+//         console.log("Hoàn thành");
+//     })
+
+function delay(ms){
+    return new Promise((resolve,reject)=>{
+
+        setTimeout(()=>{
+            const isCheck = true;
+            if(isCheck){
+                resolve("Hoàn thành tác vụ bất đồng bộ")
+            }else{
+                reject("Thất lỗi")
+            }
+        },ms)
+
+    })
+}
+
+function doingPromise(){
+    console.log("việc 1");
+    
+    delay(2000)
+        .then((data)=>{
+            console.log(data);
+            console.log("việc 2");
+            return delay(1500);// nếu trả về 1 promise-> thực thi trong then tiếp theo
+        })
+        .then((data)=>{
+            console.log(data);
+            return delay(3000);// nếu trả về 1 promise-> thực thi trong then tiếp theo
+        })
+        .then((data)=>{
+            console.log(data);
+        })
+        .catch(err => console.log(err))// nếu có lỗi ở 1 trong những .then -> catch
+        .finally()// có thể có hoặc không
+
+    
+}
+
+doingPromise();
