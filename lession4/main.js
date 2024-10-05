@@ -161,4 +161,21 @@ function doingPromise(){
         .finally() // có thể có 
 }
 
-doingPromise();
+// doingPromise();
+
+async function doingAsync(){
+    try {
+        console.log("Việc 1");
+        const data = await delay(1500);
+        console.log(data);
+        console.log("Việc 2");
+
+        const data1 = await delay(2000);
+        console.log(data1);
+        console.log("Việc 3");
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+doingAsync();
