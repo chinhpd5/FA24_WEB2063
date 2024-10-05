@@ -76,9 +76,89 @@ function doingCallback(){
 
         delay(2000,(data)=>{
             console.log(data);
-            console.log("Việc 3");
-            
+            delay(2000,(data)=>{
+                console.log(data);
+                delay(2000,(data)=>{
+                    console.log(data);
+                    delay(2000,(data)=>{
+                        console.log(data);
+                        delay(2000,(data)=>{
+                            console.log(data);
+                            
+                        })
+                    })
+                })
+            })
         })
     })
 }
-doingCallback();
+// doingCallback();
+
+//callback hell
+
+// promise: Lời hứa: thành công || thất bại
+
+
+// khai báo
+// const myPromise = new Promise((reslove, reject)=>{
+//     const isCheck = false;
+//     if(isCheck){
+//         reslove("Thành công")
+//     }else{
+//         reject("Thất bại")
+//     }
+// })
+
+// // thực thi
+// myPromise
+//     .then(data =>{
+//         console.log(data);
+//     })
+//     .catch(err=>{
+//         console.log(err);
+//     })
+//     .finally(()=>{
+//         console.log("Hoàn thành");
+//     })
+
+
+function delay(ms){
+    return new Promise((resolve,reject)=>{
+        const isCheck = true;
+        setTimeout(()=>{
+            if(isCheck){
+                resolve("Hoàn thành tác vụ bất đồng bộ")
+            }else{
+                reject("Thất bại")
+            }
+        },ms)
+    })
+}
+
+function doingPromise(){
+    console.log("việc 1");
+    
+    delay(2000)
+        .then(data=>{
+            console.log(data);
+            console.log("Việc 2");
+            return delay(1500) // nếu return về 1 promise -> thực thi trong then tiếp theo
+        })
+        .then((data)=>{
+            console.log(data);
+            console.log("việc 3");
+            return delay(1500)// lỗi -> bỏ qua các then tiếp theo -> catch
+        })
+        
+        .then((data)=>{
+            console.log(data);
+            console.log("việc 4");
+        })
+        .catch((err)=>{
+            console.log(err);
+            
+        })
+        .finally() // có thể có 
+}
+
+doingPromise();
