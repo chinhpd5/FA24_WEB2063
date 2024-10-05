@@ -161,4 +161,21 @@ function doingPromise(){
         }) // thất bại
         .finally() // có thể có
 }
-doingPromise();
+// doingPromise();
+
+// async | await
+
+async function doingAsync(){
+
+    console.log("Việc 1");
+    const data = await delay(1500); // bất đồng bộ
+    console.log(data);
+    console.log("Việc 2");
+
+    const data1 = await delay(2000);
+    console.log(data1);
+    console.log("việc 3");
+
+}
+
+doingAsync();
