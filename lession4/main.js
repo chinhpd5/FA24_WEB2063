@@ -9,13 +9,13 @@
 
 // call api, setTimeout, setInterval, load, click,...JS xử lý bất đồng bộ
 
-console.log(1);// đồng bộ
+// console.log(1);// đồng bộ
 
-setTimeout(()=>{
-    console.log(2); // bất đồng bộ
-},3000); // chờ 3s -> ()=>{} 
+// setTimeout(()=>{
+//     console.log(2); // bất đồng bộ
+// },3000); // chờ 3s -> ()=>{} 
 
-console.log(3);// đồng bộ
+// console.log(3);// đồng bộ
 
 // Lý thuyết: 1 -> chờ 3s in 2 -> 3
 // Thực tế: 1 -> 3 -> chờ 3s in 2
@@ -44,3 +44,43 @@ console.log(3);// đồng bộ
  * promise
  * async | await
  */
+
+// callback: hàm gọi lại trong hàm khác, truyền qua tham số của hàm đó
+
+function sayHello(name){
+    console.log(`Xin  chào ${name}`);
+}
+
+function greeting(callback){ // string number boolean array object // function
+    callback("chinhpd5")
+}
+
+// greeting(sayHello);
+// greeting((name)=>{
+//     console.log(`Xin chào ${name} 2`);
+// })
+
+// fake 1 tác vụ bất đồng bộ
+function delay(ms,callback){
+    setTimeout(()=>{
+        const data ="Hoàn thành tác vụ bất đồng bộ";
+        callback(data)
+    },ms)
+}
+
+function doingCallback(){
+    console.log("việc 1"); // đồng bộ
+    delay(1500,(data)=>{
+        console.log(data); // bất đồng bộ
+        console.log("việc 2"); // đồng bộ
+
+        delay(2000,(data)=>{
+            console.log(data);
+            console.log("Việc 3");
+        })
+
+    })
+
+}
+
+doingCallback();
