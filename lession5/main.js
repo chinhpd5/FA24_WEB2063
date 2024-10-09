@@ -1,4 +1,5 @@
-import {getAllProducts,deleteProduct,addProduct} from './services.js'
+import {getAllProducts,deleteProduct,addProduct,getProductById,updateProduct} from './services.js'
+const contentElement = document.getElementById('content');
 
 const app = {
     // Hiển thị danh sách sản phẩm ra table
@@ -17,6 +18,7 @@ const app = {
                     <td> <img style="height: 100px" src="${item.image}" alt=""></td>
                     <td>
                         <button data-id="${item.id}" class="btn-delete btn btn-danger">Xóa</button>
+                        <button data-id="${item.id}" class="btn-edit btn btn-warning">Sửa</button>
                     </td>
                 </tr>
             `
@@ -29,6 +31,7 @@ const app = {
         tbodyElement.innerHTML= listProduct;
 
         this.handleDelete();
+        this.handleEdit();
     },
     // xử lý chức năng xóa
     handleDelete: function(){
@@ -72,7 +75,7 @@ const app = {
             // 2. Tạo giao diện thêm mới sản phẩm
             // form
 
-            const contentElement = document.getElementById('content');
+            // const contentElement = document.getElementById('content');
             contentElement.innerHTML = `
                 <h1>Thêm mới sản phẩm</h1>
                 <form id="form_add">
@@ -102,12 +105,14 @@ const app = {
     },
     handleAdd: function(){
         const form = document.getElementById('form_add');
+
         form.addEventListener("submit",async (event)=>{
             // ngăn chặn hành vi mặc của element (ngăn chặn tải lại trang)
             event.preventDefault();
 
             // console.log("submit!!");
             // 4. validate 
+
 
             // 4.1 lấy các thẻ input
             const inputName = document.getElementById("name");
@@ -149,8 +154,110 @@ const app = {
             
             // console.log(data);
             // 5.2 thêm vào db
-            await addProduct(data)
+            await addProduct(data);
             
+        })
+    },
+    // Xử lý logic với form cập nhật
+    handleEdit: function(){
+
+        // 1. lấy ra toàn bộ nút sửa
+        const btnEdits = document.querySelectorAll('.btn-edit'); //trả về NodeList(mảng)
+        btnEdits.forEach(async(item)=>{
+
+            // 2. định nghĩa sự kiện sửa cho từng nút bấm
+            item.addEventListener("click",async ()=>{
+
+                // 2.0 lấy id từ  <button data-id="${item.id}" class="btn-edit btn btn-warning">Sửa</button>
+                // console.log(item);
+                const id = item.dataset.id;
+                // lấy id để lấy thông tin sản phẩm theo id
+                // console.log(id);
+
+                // 2.1 lấy thông sản phẩm theo id
+                const product = await getProductById(id)
+                // console.log(product);
+
+                contentElement.innerHTML= `
+                    <h1>Cập nhật sản phẩm</h1>
+                    <form id="form_edit">
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Tên sản phẩm</label>
+                            <input type="text" class="form-control" id="name" value="${product.name}">
+                        </div>
+                    
+                        <div class="mb-3">
+                            <label for="quatity" class="form-label">Số lượng</label>
+                            <input type="number" class="form-control" id="quatity" value="${product.quantity}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Hình ảnh</label>
+                            <input type="text" class="form-control" id="image" value="${product.image}">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                `
+                // xử lý logic cập nhật dữ liệu vào db khi người dùng submit form cập nhật
+                this.handleUpdate(id);
+
+            })
+        })
+    },
+    // xử lý logic cập nhật dữ liệu vào db khi người dùng submit form cập nhật
+    handleUpdate: function(id){
+        const form = document.getElementById('form_edit');
+
+        form.addEventListener("submit",async (event)=>{
+            // ngăn chặn hành vi mặc của element (ngăn chặn tải lại trang)
+            event.preventDefault();
+
+            // console.log("submit!!");
+            // 4. validate 
+
+            // 4.1 lấy các thẻ input
+            const inputName = document.getElementById("name");
+            const inputQuantity = document.getElementById("quatity");
+            const inputImage = document.getElementById("image");
+            // 4.2 kiểm tra dữ liệu và thông báo lỗi //
+
+            // console.log(inputName.value);
+            
+            if(!inputName.value.trim()){ // trim() loại bỏ khoảng trắng dư thừa
+                //nếu không có giá trị name
+                inputName.focus(); // focus vào ô input name
+                alert("Cần nhập thông tin name");
+                return; // nếu lỗi thì ngăn chặn các tác vụ tiếp theo
+            }
+
+            if(!inputQuantity.value.trim()){ // trim() loại bỏ khoảng trắng dư thừa
+                //nếu không có giá trị số lượng
+                inputQuantity.focus(); // focus vào ô input name
+                alert("Cần nhập thông tin số lượng");
+                return;
+            }
+
+            if(!inputImage.value.trim()){ // trim() loại bỏ khoảng trắng dư thừa
+                //nếu không có giá trị hình ảnh
+                inputImage.focus(); // focus vào ô input name
+                alert("Cần nhập thông tin hình ảnh");
+                return;
+            }
+
+            // 5 Cập nhật dữ liệu vào db.json
+            // 5.1 lưu trữ vào db
+            // Lưu ý khi thêm mới KHÔNG CẦN thêm id vì JSON-SERVER tự động tạo id
+            const data ={
+                name: inputName.value,
+                quantity: Number(inputQuantity.value),
+                image: inputImage.value
+            }
+            
+            // console.log(data);
+            // 5.2 cập nhật vào db
+            await updateProduct(id,data);
         })
     },
 
