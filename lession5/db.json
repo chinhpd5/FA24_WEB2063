@@ -1,29 +1,34 @@
 {
-    "products": [
-      {
-        "id": "1",
-        "name": "Sản phẩm 1",
-        "quantity": 10,
-        "image":"https://cdn.hoanghamobile.com/Uploads/2024/01/03/redmi-note-13-pro-plus-5g.png;trim.threshold=80;trim.percentpadding=0.5;width=180;height=180;mode=pad;paddingWidth=5;"
-      },
-      {
-        "id": "2",
-        "name": "Sản phẩm 2",
-        "quantity": 20,
-        "image":"https://cdn.hoanghamobile.com/Uploads/2024/09/10/iphone-16-pro-sa-mac-1.png;trim.threshold=80;trim.percentpadding=0.5;width=180;height=180;mode=pad;paddingWidth=5;"
-  
-      },
-      {
-        "id": "ca32",
-        "name": "sản phẩm 3",
-        "quantity": 30,
-        "image":"https://cdn.hoanghamobile.com/Uploads/2024/07/11/z-flip6-thumb.png;trim.threshold=80;trim.percentpadding=0.5;width=180;height=180;mode=pad;paddingWidth=5;"
-      },
-      {
-        "id": "cyu2",
-        "name": "sản phẩm 4",
-        "quantity": 40,
-        "image":"https://cdn.hoanghamobile.com/Uploads/2024/09/10/ip16-xanh-mong-ket.png;trim.threshold=80;trim.percentpadding=0.5;width=180;height=180;mode=pad;paddingWidth=5;"
-      }
-    ]
-  }
+  "products": [
+    {
+      "id": "1",
+      "name": "Sản phẩm 1",
+      "quantity": 10,
+      "image": "https://cdn.hoanghamobile.com/Uploads/2024/01/03/redmi-note-13-pro-plus-5g.png;trim.threshold=80;trim.percentpadding=0.5;width=180;height=180;mode=pad;paddingWidth=5;"
+    },
+    {
+      "id": "2",
+      "name": "Sản phẩm 2",
+      "quantity": 20,
+      "image": "https://cdn.hoanghamobile.com/Uploads/2024/09/10/iphone-16-pro-sa-mac-1.png;trim.threshold=80;trim.percentpadding=0.5;width=180;height=180;mode=pad;paddingWidth=5;"
+    },
+    {
+      "id": "ca32",
+      "name": "sản phẩm 3",
+      "quantity": 30,
+      "image": "https://cdn.hoanghamobile.com/Uploads/2024/07/11/z-flip6-thumb.png;trim.threshold=80;trim.percentpadding=0.5;width=180;height=180;mode=pad;paddingWidth=5;"
+    },
+    {
+      "id": "cyu2",
+      "name": "sản phẩm 4",
+      "quantity": 40,
+      "image": "https://cdn.hoanghamobile.com/Uploads/2024/09/10/ip16-xanh-mong-ket.png;trim.threshold=80;trim.percentpadding=0.5;width=180;height=180;mode=pad;paddingWidth=5;"
+    },
+    {
+      "id": "0b0b",
+      "name": "chinhpd5",
+      "quantity": 123,
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+    }
+  ]
+}
