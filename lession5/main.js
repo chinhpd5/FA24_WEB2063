@@ -4,7 +4,7 @@
 // put: cập nhật
 // delete: xóa
 
-import {getAllProduct,deleteProduct,addProduct} from './services.js'
+import {getAllProduct,deleteProduct,addProduct,getProductById,updateProduct} from './services.js'
 const app = {
     // key : value
 
@@ -25,6 +25,7 @@ const app = {
                     <td><img style="height: 70px" src="${item.image}" alt=""></td>
                     <td>
                         <button data-id="${item.id}" class="btn-delete btn btn-danger">Xóa</button>
+                        <button data-id="${item.id}" class="btn-edit btn btn-warning">Sửa</button>
                     </td>
                 </tr>
             `
@@ -36,6 +37,7 @@ const app = {
         tbodyElement.innerHTML = listTr;
         // }
         this.handleDeleteProduct();
+        this.handleEditProduct();
     },
     // xử lý logic xóa sản phẩm
     handleDeleteProduct: function(){
@@ -140,6 +142,94 @@ const app = {
             await addProduct(data);
             alert("Thêm thành công")
 
+        })
+    },
+    // xử lý và hiển thị giạo cập nhật
+    handleEditProduct: function(){
+        // 1. định nghĩa sự kiện click cho CÁC nút Sửa
+        const btnEdits = document.querySelectorAll('.btn-edit');
+        btnEdits.forEach(item=>{
+            item.addEventListener("click",async()=>{
+                const id = item.dataset.id;
+                // console.log(id);
+                // 2. lấy thông tin sản phẩm theo id
+                const product = await getProductById(id);
+                // console.log(product);
+                
+
+                document.getElementById('content').innerHTML=`
+                    <h1>Cập nhật sản phẩm</h1>
+                    <form id="form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Tên sản phẩm</label>
+                            <input type="text" class="form-control" id="name" value="${product.name}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Số lượng sản phẩm</label>
+                            <input type="number" class="form-control" id="quantity" value="${product.quantity}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Hình ảnh</label>
+                            <input type="text" class="form-control" id="image" value=${product.image}>
+                        </div>
+                    
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                
+                `
+
+                this.handleUpdateProduct(id);
+            })
+        })
+    },
+    handleUpdateProduct: function(id){
+         // 1. định nghĩa sự kiện submit của form
+         const form = document.getElementById("form");
+         form.addEventListener("submit",async (event)=>{
+            // ngăn chặn hành mặc định của form(tải lại trang)
+            event.preventDefault();
+            // console.log("submit!!!");
+            // 2. Lấy các thẻ input
+
+            const inputName = document.getElementById("name")
+            const inputQuantity = document.getElementById("quantity")
+            const inputImage = document.getElementById("image")
+            // console.log();
+
+            // 3. validate
+            if(!inputName.value.trim()){
+                alert("Cần nhập thông tin tên sản phẩm");
+                inputName.focus(); // focus vào ô input bị lỗi
+                return; // ngăn chặn các tác vụ tiếp theo được thực thi
+            }
+
+            if(!inputQuantity.value.trim()){
+                alert("Cần nhập thông tin số lượng sản phẩm");
+                inputQuantity.focus(); // focus vào ô input bị lỗi
+                return;
+            }
+
+            if(!inputImage.value.trim()){
+                alert("Cần nhập thông tin hình ảnh sản phẩm");
+                inputImage.focus(); // focus vào ô input bị lỗi
+                return; // ngăn chặn các tác vụ tiếp theo được thực thi
+            }
+
+            //4. lấy giá trị trong ô input
+            var data ={
+                name: inputName.value,
+                quantity: Number(inputQuantity.value),
+                image: inputImage.value,
+            }
+            // Không cần phải tạo input cho id vì json-server TỰ tạo 1 id cho phần tử khi thêm mới
+            // console.log(data);
+
+            // 5. cập nhật vào db
+            await updateProduct(id,data)
+            alert("Cập nhật thành công")
+ 
         })
     },
     start: function(){
