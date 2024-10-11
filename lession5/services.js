@@ -15,11 +15,25 @@ export const deleteProduct = async(id)=>{
     try {
         
         await fetch(`http://localhost:3000/products/${id}`,{
-            method: 'delete'
+            method: 'delete' // phương thức xóa
         })
 
         alert("Xóa thành công")
     } catch (error) {
         alert("Xóa thất bại")
+    }
+}
+
+export const addProduct = async (data)=>{
+    try {
+        await fetch('http://localhost:3000/products',{
+            method: "post", // phương thức thêm mới
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data) // chuyển dữ liệu từ object -> JSON
+        })
+    } catch (error) {
+        alert("Thêm thất bại");
     }
 }
