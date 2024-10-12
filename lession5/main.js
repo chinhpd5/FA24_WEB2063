@@ -3,7 +3,7 @@
 //put: cập nhật
 //delete: xóa
 
-import {getAllProduct,deleteProduct,addProduct} from './services.js'
+import {getAllProduct,deleteProduct,addProduct,getProductById,editProduct} from './services.js'
 const app ={
     // key:value
     // hiển thị danh sách sản phẩm
@@ -23,6 +23,7 @@ const app ={
                         <td>${item.quantity}</td>
                         <td><img style="height:70px" src="${item.image}" alt=""></td>
                         <td>
+                            <button data-id="${item.id}" class="btn_edit btn btn-warning">Sửa</button>
                             <button data-id="${item.id}" class="btn_delete btn btn-danger">Xóa</button>
                         </td>
                     </tr>
@@ -37,6 +38,8 @@ const app ={
             alert("lỗi")
         }
         this.handleDelete();
+        // hiển thị form cập nhật
+        this.handleEditProduct();
     },
     handleDelete: function(){
         // 1. Tạo button xóa
@@ -141,7 +144,93 @@ const app ={
         await addProduct(data);
         alert("Thêm thành công")
     },
+    handleEditProduct: function(){
+        const btnEdits = document.querySelectorAll('.btn_edit');
+        btnEdits.forEach((item)=>{
 
+            item.addEventListener('click',async ()=>{
+                // console.log(item);
+                const id = item.dataset.id;
+                console.log(id);
+
+                // lấy thông tin sản phẩm theo id
+                const product = await getProductById(id);
+                // console.log(product);
+
+                const content = document.getElementById('content');
+                content.innerHTML = `
+                    <h1>Cập nhật sản phẩm</h1>
+                    <form id="form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Tên sản phẩm</label>
+                            <input type="text" class="form-control" id="name" value="${product.name}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Số lượng sản phẩm</label>
+                            <input type="number" class="form-control" id="quantity" value="${product.quantity}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Hình ảnh</label>
+                            <input type="text" class="form-control" id="image" value="${product.image}">
+                        </div>
+                    
+                    
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                `
+                const form = document.getElementById('form');
+                form.addEventListener('submit',(event)=>{
+                    // ngăn chặn hành vi mặc định của form (tải trang)
+                    event.preventDefault();
+                    // console.log("submit!!");
+                    this.handleUpdateProduct(id);
+                })
+
+            })
+        })
+            
+    },
+
+    handleUpdateProduct: async function(id){
+        // lấy các thẻ input
+        const inputName = document.getElementById('name')
+        const inputQuantity = document.getElementById('quantity')
+        const inputImage = document.getElementById('image')
+
+        // kiểm tra
+        if(!inputName.value.trim()){
+            alert("Cần nhập thông tin tên sản phẩm");
+            inputName.focus();// focus vào ô input đang bị lỗi
+            return; // nagwn chặn các tác vụ tiếp theo được thực thi
+        }
+
+        if(!inputQuantity.value.trim()){
+            alert("Cần nhập thông tin số lượng sản phẩm");
+            inputQuantity.focus();// focus vào ô input đang bị lỗi
+            return;
+        }
+
+        if(!inputImage.value.trim()){
+            alert("Cần nhập thông tin hình ảnh sản phẩm");
+            inputImage.focus();// focus vào ô input đang bị lỗi
+            return;
+        }
+
+        // lấy data
+        const data = {// KHÔNG cần tạo id vì json-server sẽ tự động tạo id khi thêm mới
+            name: inputName.value,
+            quantity: Number(inputQuantity.value),
+            image: inputImage.value
+        }
+
+        console.log(data);
+        //cập nhật data vào db
+        await editProduct(id,data)
+        alert("cập nhật thành công")
+        
+    },
     start: function(){
         // console.log(123);
         // render: tạo giao diện
