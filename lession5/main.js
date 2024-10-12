@@ -1,5 +1,5 @@
 
-import { getAllProduct,deleteProduct } from "./services.js";
+import { getAllProduct,deleteProduct,addProduct } from "./services.js";
 
 const app = {
     // key : value
@@ -59,12 +59,90 @@ const app = {
         })
         
     },
+    renderAddProduct: function(){
+        // địng nghĩa sự kiện click nút add
+        const btnAdd = document.getElementById('btn_add');
+        btnAdd.addEventListener('click',()=>{
+            // console.log("add!!!");
+            const content = document.getElementById('content');
+            // thay thế nội dung thêm mới (form)
+            content.innerHTML= `
+                <h1> Thêm mới sản phẩm</h1>
+                <form id="form">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Tên sản phẩm</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
 
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Số lượng sản phẩm</label>
+                        <input type="number" class="form-control" id="quantity">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Hình ảnh</label>
+                        <input type="text" class="form-control" id="image">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            `
+            
+            const form = document.getElementById('form');
+            form.addEventListener('submit',(event)=>{
+                // ngăn chặn hành vi mặc định (tải trang)
+                event.preventDefault();
+                // xử lý logic thêm mới sản phẩm
+                this.handleAddProduct();
+                
+            })
+        })
+    },
+    handleAddProduct: async function(){
+        //lấy ra toàn bộ thẻ input
+        const inputName = document.getElementById('name')
+        const inputQuantity = document.getElementById('quantity')
+        const inputImage = document.getElementById('image')
+
+        // validate
+
+        if(!inputName.value.trim()){
+            alert("Cần nhập thông tin tên sản phẩm");
+            inputName.focus(); // focus vào ô input đang bị lỗi
+            return; // ngăn chặn thực thi các tác vụ tiếp theo
+        }
+
+        if(!inputQuantity.value.trim()){
+            alert("Cần nhập thông tin số lượng sản phẩm");
+            inputQuantity.focus(); // focus vào ô input đang bị lỗi
+            return;
+        }
+
+        if(!inputImage.value.trim()){
+            alert("Cần nhập thông tin hình ảnh sản phẩm");
+            inputImage.focus(); // focus vào ô input đang bị lỗi
+            return;
+        }
+
+        // lấy dữ liệu
+        const data = { // KHÔNG cần thêm id vì json-server sẽ tự động tạo id khi thêm mới
+            name: inputName.value,
+            quantity: Number(inputQuantity.value),
+            image: inputImage.value
+        }
+
+        console.log(data);
+        // thêm data vào db.json
+        await addProduct(data);
+        alert("Thêm thành công")
+
+    },
     start: function(){
         // console.log(123);
         // render : Hiển thị ra giao diện
         // handle : Xử lý logic cho chức năng
         this.renderProductList();
+        this.renderAddProduct();
     }
 }
 
