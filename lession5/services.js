@@ -41,3 +41,30 @@ export const addProduct = async (data)=>{
         alert("Lỗi")
     }
 }
+
+export const getProductById =async(id)=>{
+    try {
+        const res  = await fetch(`http://localhost:3000/products/${id}`)
+        const data = await res.json();
+
+        return data;
+    } catch (error) {
+        alert("Lỗi")
+    }
+
+}
+
+export const updateProduct = async (id,data)=>{
+    try{
+        await fetch(`http://localhost:3000/products/${id}`,{
+            method: "put", // cập nhật
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)// chuyển dữ liệu từ object -> JSON
+        })
+
+    }catch(err){
+        alert("Lỗi")
+    }
+}
